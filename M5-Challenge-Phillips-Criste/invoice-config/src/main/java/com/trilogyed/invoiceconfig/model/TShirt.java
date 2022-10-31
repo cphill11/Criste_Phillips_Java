@@ -1,4 +1,4 @@
-package com.trilogyed.invoiceconfig.controller;
+package com.trilogyed.invoiceconfig.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

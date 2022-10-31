@@ -1,6 +1,6 @@
 package com.trilogyed.catalogconfig.repository;
 
-import com.trilogyed.gamestore.model.Console;
+import com.trilogyed.catalogconfig.model.Console;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

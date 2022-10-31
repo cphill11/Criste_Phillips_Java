@@ -1,8 +1,10 @@
 package com.trilogyed.catalogconfig.controller;
 
-import com.trilogyed.gamestore.service.GameStoreServiceLayer;
-import com.trilogyed.gamestore.viewModel.ConsoleViewModel;
+import com.trilogyed.catalogconfig.service.CatalogServiceLayer;
+
+import com.trilogyed.catalogconfig.viewModel.ConsoleViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +12,15 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RefreshScope
 @RequestMapping(value = "/console")
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class ConsoleController {
 
     @Autowired
-    GameStoreServiceLayer service;
+    CatalogServiceLayer service;
 
+    // create Console
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ConsoleViewModel createConsole(@RequestBody @Valid ConsoleViewModel consoleViewModel) {
@@ -24,6 +28,7 @@ public class ConsoleController {
         return consoleViewModel;
     }
 
+    // get Console by ID
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ConsoleViewModel getConsole(@PathVariable("id") long consoleId) {
@@ -35,6 +40,18 @@ public class ConsoleController {
         }
     }
 
+    // get all consoles
+    @GetMapping()
+    @ResponseStatus(HttpStatus.OK)
+    public List<ConsoleViewModel> getAllConsoles() {
+        List<ConsoleViewModel> cvmByManufacturer = service.getAllConsoles();
+        if (cvmByManufacturer == null || cvmByManufacturer.isEmpty()) {
+            throw new IllegalArgumentException("No consoles were found");
+        } else
+            return cvmByManufacturer;
+    }
+
+    // updated console
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateConsole(@RequestBody @Valid ConsoleViewModel consoleViewModel) {
@@ -46,12 +63,14 @@ public class ConsoleController {
         }
     }
 
+    // delete console by ID
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteConsole(@PathVariable("id") long consoleId) {
         service.deleteConsole(consoleId);
     }
 
+    // get console by Manufacturer
     @GetMapping("/manufacturer/{manufacturer}")
     @ResponseStatus(HttpStatus.OK)
     public List<ConsoleViewModel> getConsoleByManufacturer(@PathVariable("manufacturer") String manu) {
@@ -62,13 +81,4 @@ public class ConsoleController {
             return cvmByManufacturer;
     }
 
-    @GetMapping()
-    @ResponseStatus(HttpStatus.OK)
-    public List<ConsoleViewModel> getAllConsoles() {
-        List<ConsoleViewModel> cvmByManufacturer = service.getAllConsoles();
-        if (cvmByManufacturer == null || cvmByManufacturer.isEmpty()) {
-            throw new IllegalArgumentException("No consoles were found");
-        } else
-            return cvmByManufacturer;
-    }
 }

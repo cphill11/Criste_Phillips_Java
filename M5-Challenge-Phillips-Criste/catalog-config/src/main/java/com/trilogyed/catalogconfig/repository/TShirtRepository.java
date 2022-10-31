@@ -1,6 +1,6 @@
 package com.trilogyed.catalogconfig.repository;
 
-import com.trilogyed.gamestore.model.TShirt;
+import com.trilogyed.catalogconfig.model.TShirt;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
