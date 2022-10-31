@@ -20,12 +20,12 @@ public class GameController {
    CatalogServiceLayer service;
 
     // create game
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public GameViewModel createGame(@RequestBody @Valid GameViewModel gameViewModel) {
-        gameViewModel = service.createGame(gameViewModel);
-        return gameViewModel;
-    }
+//    @PostMapping
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public GameViewModel createGame(@RequestBody @Valid GameViewModel gameViewModel) {
+//        gameViewModel = service.createGame(gameViewModel);
+//        return gameViewModel;
+//    }
 
     // get game by ID
     @GetMapping("/{id}")
