@@ -1,4 +1,4 @@
-package com.trilogyed.gamestore.controller;
+package com.trilogyed.invoiceconfig.controller;
 
 import com.trilogyed.gamestore.service.GameStoreServiceLayer;
 import com.trilogyed.gamestore.viewModel.InvoiceViewModel;

@@ -1,4 +1,4 @@
-package com.trilogyed.gamestore.controller;
+package com.trilogyed.invoiceconfig.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

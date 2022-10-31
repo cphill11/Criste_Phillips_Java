@@ -1,4 +1,4 @@
-package com.trilogyed.gamestore.repository;
+package com.trilogyed.invoiceconfig.repository;
 
 import com.trilogyed.gamestore.model.Game;
 import org.springframework.data.jpa.repository.JpaRepository;

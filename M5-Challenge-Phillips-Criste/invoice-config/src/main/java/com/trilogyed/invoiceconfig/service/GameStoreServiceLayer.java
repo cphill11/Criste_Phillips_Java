@@ -1,5 +1,11 @@
-package com.trilogyed.gamestore.service;
+package com.trilogyed.invoiceconfig.service;
 
+import com.trilogyed.gamestore.model.*;
+import com.trilogyed.gamestore.repository.*;
+import com.trilogyed.gamestore.viewModel.ConsoleViewModel;
+import com.trilogyed.gamestore.viewModel.GameViewModel;
+import com.trilogyed.gamestore.viewModel.InvoiceViewModel;
+import com.trilogyed.gamestore.viewModel.TShirtViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,13 +14,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import com.trilogyed.gamestore.repository.*;
-import com.trilogyed.gamestore.model.*;
-import com.trilogyed.gamestore.viewModel.ConsoleViewModel;
-import com.trilogyed.gamestore.viewModel.GameViewModel;
-import com.trilogyed.gamestore.viewModel.InvoiceViewModel;
-import com.trilogyed.gamestore.viewModel.TShirtViewModel;
 
 @Component
 public class GameStoreServiceLayer {

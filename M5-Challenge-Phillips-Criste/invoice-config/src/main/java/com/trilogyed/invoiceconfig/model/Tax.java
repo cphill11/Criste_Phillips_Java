@@ -1,4 +1,4 @@
-package com.trilogyed.gamestore.model;
+package com.trilogyed.invoiceconfig.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
