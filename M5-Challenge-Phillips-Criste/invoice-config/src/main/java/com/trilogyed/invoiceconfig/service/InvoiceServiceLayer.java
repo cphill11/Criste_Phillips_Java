@@ -1,37 +1,47 @@
 package com.trilogyed.invoiceconfig.service;
 
-import com.trilogyed.invoiceconfig.model.Invoice;
-import com.trilogyed.invoiceconfig.model.ProcessingFee;
-import com.trilogyed.invoiceconfig.model.Tax;
+import com.trilogyed.invoiceconfig.model.*;
 import com.trilogyed.invoiceconfig.repository.InvoiceRepository;
 import com.trilogyed.invoiceconfig.repository.ProcessingFeeRepository;
 import com.trilogyed.invoiceconfig.repository.TaxRepository;
 import com.trilogyed.invoiceconfig.viewModel.InvoiceViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.stereotype.Component;
 
-import java.io.Console;
+import com.trilogyed.invoiceconfig.util.GameStoreInvoiceFeignClient;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@EnableFeignClients
+@EnableDiscoveryClient
+@SpringBootApplication
+
 @Component
 public class InvoiceServiceLayer {
-
+    private final String GAME_ITEM_TYPE = "Game";
+    private final String CONSOLE_ITEM_TYPE = "Console";
+    private final String TSHIRT_ITEM_TYPE = "T-Shirt";
     private final BigDecimal PROCESSING_FEE = new BigDecimal("15.49");
     private final BigDecimal MAX_INVOICE_TOTAL = new BigDecimal("999.99");
 
     InvoiceRepository invoiceRepo;
     TaxRepository taxRepo;
     ProcessingFeeRepository processingFeeRepo;
+    GameStoreInvoiceFeignClient client;
 
     @Autowired
-    public InvoiceServiceLayer(InvoiceRepository invoiceRepo, TaxRepository taxRepo, ProcessingFeeRepository processingFeeRepo) {
+    public InvoiceServiceLayer(InvoiceRepository invoiceRepo, TaxRepository taxRepo, ProcessingFeeRepository processingFeeRepo, GameStoreInvoiceFeignClient client) {
         this.invoiceRepo = invoiceRepo;
         this.taxRepo = taxRepo;
         this.processingFeeRepo = processingFeeRepo;
+        this.client = client;
     }
 
     public InvoiceViewModel createInvoice(InvoiceViewModel invoiceViewModel) {
@@ -62,50 +72,42 @@ public class InvoiceServiceLayer {
         //Checks the item type and get the correct unit price
         //Check if we have enough quantity
         if (invoiceViewModel.getItemType().equals(CONSOLE_ITEM_TYPE)) {
-            Console tempCon = null;
-            Optional<Console> returnVal = consoleRepo.findById(invoiceViewModel.getItemId());
 
-            if (returnVal.isPresent()) {
-                tempCon = returnVal.get();
-            } else {
+            Console returnVal = client.getConsoleById(invoiceViewModel.getItemId());
+            if (returnVal == null) {
                 throw new IllegalArgumentException("Requested item is unavailable.");
             }
 
-            if (invoiceViewModel.getQuantity() > tempCon.getQuantity()) {
+            if (invoiceViewModel.getQuantity() > returnVal.getQuantity()) {
                 throw new IllegalArgumentException("Requested quantity is unavailable.");
             }
 
-            invoice.setUnitPrice(tempCon.getPrice());
+            invoice.setUnitPrice(returnVal.getPrice());
 
         } else if (invoiceViewModel.getItemType().equals(GAME_ITEM_TYPE)) {
-            Game tempGame = null;
-            Optional<Game> returnVal = gameRepo.findById(invoiceViewModel.getItemId());
+            Game returnVal = client.getGameById(invoiceViewModel.getItemId());
 
-            if (returnVal.isPresent()) {
-                tempGame = returnVal.get();
-            } else {
+            if (returnVal == null) {
                 throw new IllegalArgumentException("Requested item is unavailable.");
             }
 
-            if (invoiceViewModel.getQuantity() > tempGame.getQuantity()) {
+            if (invoiceViewModel.getQuantity() > returnVal.getQuantity()) {
                 throw new IllegalArgumentException("Requested quantity is unavailable.");
             }
-            invoice.setUnitPrice(tempGame.getPrice());
+            invoice.setUnitPrice(returnVal.getPrice());
 
         } else if (invoiceViewModel.getItemType().equals(TSHIRT_ITEM_TYPE)) {
-            TShirt tempTShirt = null;
-            Optional<TShirt> returnVal = tShirtRepo.findById(invoiceViewModel.getItemId());
 
-            if (returnVal.isPresent()) {
-                tempTShirt = returnVal.get();
-            } else {
+            TShirt returnVal = client.getTShirtById(invoiceViewModel.getItemId());
+
+            if (returnVal == null) {
                 throw new IllegalArgumentException("Requested item is unavailable.");
             }
 
-            if (invoiceViewModel.getQuantity() > tempTShirt.getQuantity()) {
+            if (invoiceViewModel.getQuantity() > returnVal.getQuantity()) {
                 throw new IllegalArgumentException("Requested quantity is unavailable.");
             }
-            invoice.setUnitPrice(tempTShirt.getPrice());
+            invoice.setUnitPrice(returnVal.getPrice());
 
         } else {
             throw new IllegalArgumentException(invoiceViewModel.getItemType() +
@@ -205,7 +207,6 @@ public class InvoiceServiceLayer {
     public void deleteInvoice(long id) {
         invoiceRepo.deleteById(id);
     }
-
 
     public InvoiceViewModel buildInvoiceViewModel(Invoice invoice) {
         InvoiceViewModel invoiceViewModel = new InvoiceViewModel();

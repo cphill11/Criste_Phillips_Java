@@ -63,7 +63,7 @@ public class InvoiceController {
         List<InvoiceViewModel> invoiceViewModelList = service.getInvoicesByCustomerName(name);
 
         if (invoiceViewModelList == null || invoiceViewModelList.isEmpty()) {
-            throw new IllegalArgumentException("No invoices were found for: "+name);
+            throw new IllegalArgumentException("No invoices were found for: " + name);
         } else {
             return invoiceViewModelList;
         }

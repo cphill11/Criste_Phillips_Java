@@ -32,7 +32,6 @@ public class GameStoreControllerExceptionHandler extends ResponseEntityException
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
-
     //Handles all other exceptions...z
     @Override
     public ResponseEntity<Object> handleMethodArgumentNotValid(
