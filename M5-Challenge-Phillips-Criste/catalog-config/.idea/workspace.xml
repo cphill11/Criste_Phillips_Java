@@ -5,23 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c221443-4029-4f46-a50d-49b68d82f624" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../invoice-config/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/util/GameStoreInvoiceFeignClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/CatalogMicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/CatalogMicroserviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/ConsoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/ConsoleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/TShirtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/TShirtController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/service/CatalogServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/service/CatalogServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/util/feign/GameStoreCatalog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../invoice-config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/InvoiceMicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/InvoiceMicroserviceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/viewModel/ConsoleViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/viewModel/GameViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/viewModel/TShirtViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../invoice-config/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/InvoiceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Console.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Invoice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/ProcessingFee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/TShirt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Tax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/repository/InvoiceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/repository/ProcessingFeeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/repository/TaxRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/service/InvoiceServiceLayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/util/GameStoreInvoiceFeignClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/ConsoleViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/GameViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/InvoiceViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/TShirtViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../invoice-config/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" afterDir="false" />
@@ -54,7 +59,7 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>

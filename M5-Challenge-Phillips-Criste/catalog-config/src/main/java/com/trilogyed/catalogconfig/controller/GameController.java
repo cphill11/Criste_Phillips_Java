@@ -92,7 +92,7 @@ public class GameController {
     }
 
     // update game
-    @PutMapping
+    @PutMapping (value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateGame(@RequestBody @Valid GameViewModel gameViewModel) {
         service.updateGame(gameViewModel);

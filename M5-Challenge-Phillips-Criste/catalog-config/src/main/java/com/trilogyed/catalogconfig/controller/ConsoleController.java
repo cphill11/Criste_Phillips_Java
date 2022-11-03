@@ -62,7 +62,7 @@ public class ConsoleController {
     }
 
     // update console
-    @PutMapping
+    @PutMapping (value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateConsole(@RequestBody @Valid ConsoleViewModel consoleViewModel) {
 

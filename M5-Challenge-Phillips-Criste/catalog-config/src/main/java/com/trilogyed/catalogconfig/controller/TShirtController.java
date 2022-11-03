@@ -73,7 +73,7 @@ public class TShirtController {
     }
 
     // update TShirt
-    @PutMapping
+    @PutMapping (value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateTShirt(@RequestBody @Valid TShirtViewModel tShirtViewModel) {
         if (tShirtViewModel == null || tShirtViewModel.getId() < 1) {
