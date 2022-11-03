@@ -50,24 +50,6 @@ public class TShirtController {
         return tvmByColor;
     }
 
-    // update TShirt
-    @PutMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateTShirt(@RequestBody @Valid TShirtViewModel tShirtViewModel) {
-        if (tShirtViewModel==null || tShirtViewModel.getId() < 1) {
-            throw new IllegalArgumentException("Id in path must match id in view model");
-        }else if (tShirtViewModel.getId() > 0) {
-            service.updateTShirt(tShirtViewModel);
-        }
-    }
-
-    // delete TShirt by ID
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteTShirt(@PathVariable("id") int tShirtId) {
-        service.deleteTShirt(tShirtId);
-    }
-
     // get TShirt by Size
     @GetMapping("/size/{size}")
     @ResponseStatus(HttpStatus.OK)
@@ -88,5 +70,23 @@ public class TShirtController {
             throw new IllegalArgumentException("No t-shirts were found in " + color);
         }
         return tvmByColor;
+    }
+
+    // update TShirt
+    @PutMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateTShirt(@RequestBody @Valid TShirtViewModel tShirtViewModel) {
+        if (tShirtViewModel == null || tShirtViewModel.getId() < 1) {
+            throw new IllegalArgumentException("Id in path must match id in view model");
+        } else if (tShirtViewModel.getId() > 0) {
+            service.updateTShirt(tShirtViewModel);
+        }
+    }
+
+    // delete TShirt by ID
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteTShirt(@PathVariable("id") int tShirtId) {
+        service.deleteTShirt(tShirtId);
     }
 }

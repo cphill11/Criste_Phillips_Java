@@ -17,15 +17,15 @@ import java.util.List;
 public class GameController {
 
     @Autowired
-   CatalogServiceLayer service;
+    CatalogServiceLayer service;
 
-    // create game
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public GameViewModel createGame(@RequestBody @Valid GameViewModel gameViewModel) {
-//        gameViewModel = service.createGame(gameViewModel);
-//        return gameViewModel;
-//    }
+    //     create game
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public GameViewModel createGame(@RequestBody @Valid GameViewModel gameViewModel) {
+        gameViewModel = service.createGame(gameViewModel);
+        return gameViewModel;
+    }
 
     // get game by ID
     @GetMapping("/{id}")
@@ -38,6 +38,7 @@ public class GameController {
             return gameViewModel;
         }
     }
+
     // get all games
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
@@ -49,20 +50,6 @@ public class GameController {
         } else {
             return games;
         }
-    }
-
-    // update game
-    @PutMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateGame(@RequestBody @Valid GameViewModel gameViewModel) {
-        service.updateGame(gameViewModel);
-    }
-
-    // delete game by ID
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteGame(@PathVariable("id") int gameId) {
-        service.deleteGame(gameId);
     }
 
     // get game by Title
@@ -103,4 +90,19 @@ public class GameController {
             return gamesByStudio;
         }
     }
+
+    // update game
+    @PutMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateGame(@RequestBody @Valid GameViewModel gameViewModel) {
+        service.updateGame(gameViewModel);
+    }
+
+    // delete game by ID
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteGame(@PathVariable("id") int gameId) {
+        service.deleteGame(gameId);
+    }
+
 }

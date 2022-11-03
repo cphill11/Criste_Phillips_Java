@@ -9,31 +9,19 @@ import com.trilogyed.catalogconfig.repository.TShirtRepository;
 import com.trilogyed.catalogconfig.viewModel.ConsoleViewModel;
 import com.trilogyed.catalogconfig.viewModel.GameViewModel;
 import com.trilogyed.catalogconfig.viewModel.TShirtViewModel;
-//import com.trilogyed.gamestore.model.*;
-//import com.trilogyed.gamestore.repository.*;
-//import com.trilogyed.gamestore.viewModel.ConsoleViewModel;
-//import com.trilogyed.gamestore.viewModel.GameViewModel;
-//import com.trilogyed.gamestore.viewModel.InvoiceViewModel;
-//import com.trilogyed.gamestore.viewModel.TShirtViewModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Component
 public class CatalogServiceLayer {
-    private final String GAME_ITEM_TYPE = "Game";
-    private final String CONSOLE_ITEM_TYPE = "Console";
-    private final String TSHIRT_ITEM_TYPE = "T-Shirt";
-
     GameRepository gameRepo;
     ConsoleRepository consoleRepo;
     TShirtRepository tShirtRepo;
-
 
     @Autowired
     public CatalogServiceLayer(GameRepository gameRepo, ConsoleRepository consoleRepo, TShirtRepository tShirtRepo) {
@@ -50,14 +38,32 @@ public class CatalogServiceLayer {
             return buildGameViewModel(game.get());
     }
 
+    public GameViewModel createGame(GameViewModel gameViewModel) {
+
+        // Validate incoming Game Data in the view model.
+        // All validations were done using JSR303
+        if (gameViewModel == null) throw new IllegalArgumentException("No Game is passed! Game object is null!");
+
+        Game game = new Game();
+        game.setTitle(gameViewModel.getTitle());
+        game.setEsrbRating(gameViewModel.getEsrbRating());
+        game.setDescription(gameViewModel.getDescription());
+        game.setPrice(gameViewModel.getPrice());
+        game.setQuantity(gameViewModel.getQuantity());
+        game.setStudio(gameViewModel.getStudio());
+
+        gameViewModel.setId(gameRepo.save(game).getId());
+        return gameViewModel;
+    }
+
     public void updateGame(GameViewModel gameViewModel) {
 
         //Validate incoming Game Data in the view model
-        if (gameViewModel==null)
+        if (gameViewModel == null)
             throw new IllegalArgumentException("No Game data is passed! Game object is null!");
 
         //make sure the game exists. and if not, throw exception...
-        if (this.getGame(gameViewModel.getId())==null)
+        if (this.getGame(gameViewModel.getId()) == null)
             throw new IllegalArgumentException("No such game to update.");
 
         Game game = new Game();
@@ -126,7 +132,7 @@ public class CatalogServiceLayer {
 
         // Remember viewModel data was validated using JSR 303
         // Validate incoming Console Data in the view model
-        if (consoleViewModel==null) throw new IllegalArgumentException("No Console is passed! Game object is null!");
+        if (consoleViewModel == null) throw new IllegalArgumentException("No Console is passed! Game object is null!");
 
         Console console = new Console();
         console.setModel(consoleViewModel.getModel());
@@ -150,7 +156,7 @@ public class CatalogServiceLayer {
     public void updateConsole(ConsoleViewModel consoleViewModel) {
 
         //Validate incoming Console Data in the view model
-        if (consoleViewModel==null)
+        if (consoleViewModel == null)
             throw new IllegalArgumentException("No console data is passed! Console object is null!");
 
         //make sure the Console exists. and if not, throw exception...
@@ -201,7 +207,7 @@ public class CatalogServiceLayer {
 
         // Remember model view has already been validated through JSR 303
         // Validate incoming TShirt Data in the view model
-        if (tShirtViewModel==null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
+        if (tShirtViewModel == null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
 
         TShirt tShirt = new TShirt();
         tShirt.setSize(tShirtViewModel.getSize());
@@ -227,10 +233,10 @@ public class CatalogServiceLayer {
 
         // Remember model view has already been validated through JSR 303
         // Validate incoming TShirt Data in the view model
-        if (tShirtViewModel==null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
+        if (tShirtViewModel == null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
 
         //make sure the Console exists. and if not, throw exception...
-        if (this.getTShirt(tShirtViewModel.getId())==null)
+        if (this.getTShirt(tShirtViewModel.getId()) == null)
             throw new IllegalArgumentException("No such TShirt to update.");
 
         TShirt tShirt = new TShirt();

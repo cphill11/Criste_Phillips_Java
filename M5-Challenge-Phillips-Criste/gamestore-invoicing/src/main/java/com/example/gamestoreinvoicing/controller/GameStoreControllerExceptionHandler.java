@@ -1,4 +1,4 @@
-package com.trilogyed.catalogconfig.controller;
+package com.trilogyed.invoiceconfig.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -31,6 +31,7 @@ public class GameStoreControllerExceptionHandler extends ResponseEntityException
 
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
+
 
     //Handles all other exceptions...z
     @Override

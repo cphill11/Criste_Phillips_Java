@@ -1,7 +1,6 @@
 package com.trilogyed.catalogconfig.controller;
 
 import com.trilogyed.catalogconfig.service.CatalogServiceLayer;
-
 import com.trilogyed.catalogconfig.viewModel.ConsoleViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -51,12 +50,23 @@ public class ConsoleController {
             return cvmByManufacturer;
     }
 
-    // updated console
+    // get console by Manufacturer
+    @GetMapping("/manufacturer/{manufacturer}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ConsoleViewModel> getConsoleByManufacturer(@PathVariable("manufacturer") String manu) {
+        List<ConsoleViewModel> cvmByManufacturer = service.getConsoleByManufacturer(manu);
+        if (cvmByManufacturer == null || cvmByManufacturer.isEmpty()) {
+            throw new IllegalArgumentException("No consoles, manufactured by " + manu + ", were found");
+        } else
+            return cvmByManufacturer;
+    }
+
+    // update console
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateConsole(@RequestBody @Valid ConsoleViewModel consoleViewModel) {
 
-        if (consoleViewModel==null || consoleViewModel.getId()< 1) {
+        if (consoleViewModel == null || consoleViewModel.getId() < 1) {
             throw new IllegalArgumentException("Id in path must match id in view model");
         } else if (consoleViewModel.getId() > 0) {
             service.updateConsole(consoleViewModel);
@@ -69,16 +79,4 @@ public class ConsoleController {
     public void deleteConsole(@PathVariable("id") long consoleId) {
         service.deleteConsole(consoleId);
     }
-
-    // get console by Manufacturer
-    @GetMapping("/manufacturer/{manufacturer}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<ConsoleViewModel> getConsoleByManufacturer(@PathVariable("manufacturer") String manu) {
-        List<ConsoleViewModel> cvmByManufacturer = service.getConsoleByManufacturer(manu);
-        if (cvmByManufacturer == null || cvmByManufacturer.isEmpty()) {
-            throw new IllegalArgumentException("No consoles, manufactured by " + manu + ", were found");
-        } else
-            return cvmByManufacturer;
-    }
-
 }
