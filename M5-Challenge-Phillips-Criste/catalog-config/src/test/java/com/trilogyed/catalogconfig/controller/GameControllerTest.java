@@ -152,11 +152,11 @@ public class GameControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateGame(inGameViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/game")
+        this.mockMvc.perform(put("/game/{id}", 62)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -603,7 +603,7 @@ public class GameControllerTest {
         when(this.storeServiceLayer.createGame(inGameViewModel)).thenReturn(null);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -621,7 +621,7 @@ public class GameControllerTest {
         inGameViewModel.setId(77);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -640,7 +640,7 @@ public class GameControllerTest {
 
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -658,7 +658,7 @@ public class GameControllerTest {
 
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -676,7 +676,7 @@ public class GameControllerTest {
 
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -693,7 +693,7 @@ public class GameControllerTest {
 
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -710,7 +710,7 @@ public class GameControllerTest {
 
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -728,7 +728,7 @@ public class GameControllerTest {
 
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
@@ -745,7 +745,7 @@ public class GameControllerTest {
 
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/game")
+                MockMvcRequestBuilders.put("/game/{id}", 77)
                         .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.

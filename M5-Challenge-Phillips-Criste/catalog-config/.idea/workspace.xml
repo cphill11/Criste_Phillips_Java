@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c221443-4029-4f46-a50d-49b68d82f624" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/controller/InvoiceControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/InvoiceRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/ProcessingFeeRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/TaxRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/ConsoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/ConsoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/TShirtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/TShirtController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/InvoiceController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Console.java" beforeDir="false" />
@@ -35,6 +27,11 @@
       <change beforePath="$PROJECT_DIR$/../invoice-config/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../invoice-config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/controller/InvoiceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/controller/InvoiceControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/InvoiceRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/InvoiceRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/ProcessingFeeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/ProcessingFeeRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/TaxRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/repository/TaxRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" afterDir="false" />
@@ -115,8 +112,8 @@
       <recent name="com.trilogyed.catalogconfig" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ConsoleControllerTest">
-    <configuration name="ConsoleControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GameControllerTest.shouldFailFindGamesWithInvalidData">
+    <configuration name="GameControllerTest.shouldFailCreateGameWithInvalidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
         <pattern>
@@ -125,29 +122,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.ConsoleControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConsoleControllerTest.shouldFailGetConsoleByManufacturerWithInvalidManufacturer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalog-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.trilogyed.catalogconfig.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.ConsoleControllerTest" />
-      <option name="METHOD_NAME" value="shouldFailGetConsoleByManufacturerWithInvalidManufacturer" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
+      <option name="METHOD_NAME" value="shouldFailCreateGameWithInvalidData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConsoleControllerTest.shouldFailUpdateConsoleInvalidQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameControllerTest.shouldFailFindGamesWithInvalidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
         <pattern>
@@ -156,14 +138,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.ConsoleControllerTest" />
-      <option name="METHOD_NAME" value="shouldFailUpdateConsoleInvalidQuantity" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
+      <option name="METHOD_NAME" value="shouldFailFindGamesWithInvalidData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConsoleControllerTest.shouldReturn204StatusWithGoodUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameControllerTest.shouldFailUpdateGameWithInvalidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
         <pattern>
@@ -172,14 +154,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.ConsoleControllerTest" />
-      <option name="METHOD_NAME" value="shouldReturn204StatusWithGoodUpdate" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
+      <option name="METHOD_NAME" value="shouldFailUpdateGameWithInvalidData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConsoleControllerTest.shouldReturn404StatusWithBadIdUpdateRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameControllerTest.shouldGetAllGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
         <pattern>
@@ -188,8 +170,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.ConsoleControllerTest" />
-      <option name="METHOD_NAME" value="shouldReturn404StatusWithBadIdUpdateRequest" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
+      <option name="METHOD_NAME" value="shouldGetAllGames" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameControllerTest.shouldGetGamesByStudio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.catalogconfig.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
+      <option name="METHOD_NAME" value="shouldGetGamesByStudio" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ConsoleControllerTest" />
-        <item itemvalue="JUnit.ConsoleControllerTest.shouldReturn404StatusWithBadIdUpdateRequest" />
-        <item itemvalue="JUnit.ConsoleControllerTest.shouldReturn204StatusWithGoodUpdate" />
-        <item itemvalue="JUnit.ConsoleControllerTest.shouldFailUpdateConsoleInvalidQuantity" />
-        <item itemvalue="JUnit.ConsoleControllerTest.shouldFailGetConsoleByManufacturerWithInvalidManufacturer" />
+        <item itemvalue="JUnit.GameControllerTest.shouldFailFindGamesWithInvalidData" />
+        <item itemvalue="JUnit.GameControllerTest.shouldFailUpdateGameWithInvalidData" />
+        <item itemvalue="JUnit.GameControllerTest.shouldFailCreateGameWithInvalidData" />
+        <item itemvalue="JUnit.GameControllerTest.shouldGetAllGames" />
+        <item itemvalue="JUnit.GameControllerTest.shouldGetGamesByStudio" />
       </list>
     </recent_temporary>
   </component>
