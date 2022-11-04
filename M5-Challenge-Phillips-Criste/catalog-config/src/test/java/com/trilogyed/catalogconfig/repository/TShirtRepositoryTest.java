@@ -1,6 +1,6 @@
 package com.trilogyed.catalogconfig.repository;
 
-import com.trilogyed.gamestore.model.TShirt;
+import com.trilogyed.catalogconfig.model.TShirt;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

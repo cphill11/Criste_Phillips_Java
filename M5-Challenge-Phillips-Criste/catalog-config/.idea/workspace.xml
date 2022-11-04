@@ -7,14 +7,10 @@
     <list default="true" id="9c221443-4029-4f46-a50d-49b68d82f624" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/InvoiceControllerTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/TShirtControllerTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/ConsoleRepositoryTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/GameRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/InvoiceRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/ProcessingFeeRepositoryTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/TShirtRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/TaxRepositoryTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/service/CatalogServiceLayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
