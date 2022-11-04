@@ -95,26 +95,6 @@ public class CatalogServiceLayerTest {
 
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldFailWhenUpdateConsoleWithBadId() {
-        ConsoleViewModel console2 = new ConsoleViewModel();
-        console2.setModel("Playstation");
-        console2.setManufacturer("Sony");
-        console2.setMemoryAmount("120gb");
-        console2.setProcessor("Intel I7-9750H");
-        console2.setPrice(new BigDecimal("299.99"));
-        console2.setQuantity(4);
-        console2 = service.createConsole(console2);
-
-        console2.setQuantity(6);
-        console2.setPrice(new BigDecimal(289.99));
-
-        //change Id to an invalid one.
-        console2.setId(console2.getId()+1);
-
-        service.updateConsole(console2);
-    }
-
     @Test
     public void shouldDeleteConsole() {
 
@@ -253,24 +233,6 @@ public class CatalogServiceLayerTest {
     public void shouldFailUpdateTShirtWithNullViewModel() {
 
         TShirtViewModel tShirt = null;
-        service.updateTShirt(tShirt);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldFailUpdateTShirtWithBadId() {
-
-        TShirtViewModel tShirt = new TShirtViewModel();
-        tShirt.setSize("Medium");
-        tShirt.setColor("Blue");
-        tShirt.setDescription("V-Neck");
-        tShirt.setPrice(new BigDecimal("19.99"));
-        tShirt.setQuantity(5);
-        tShirt = service.createTShirt(tShirt);
-
-        tShirt.setQuantity(3);
-        tShirt.setPrice(new BigDecimal("18.99"));
-
-        tShirt.setId(tShirt.getId()+1);
         service.updateTShirt(tShirt);
     }
 
@@ -437,28 +399,6 @@ public class CatalogServiceLayerTest {
         service.updateGame(game);
 
         verify(gameRepository, times(2)).save(any(Game.class));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldFailWhenUpdateGameInvalidId() {
-
-        GameViewModel game = new GameViewModel();
-        game.setTitle("Halo");
-        game.setEsrbRating("E10+");
-        game.setDescription("Puzzles and Math");
-        game.setPrice(new BigDecimal("23.99"));
-        game.setStudio("Xbox Game Studios");
-        game.setQuantity(5);
-        game = service.createGame(game);
-
-        game.setPrice(new BigDecimal("20.99"));
-        game.setQuantity(3);
-
-        //set game id to invalid id...
-        game.setId(game.getId()+1);
-        service.updateGame(game);
-
-        System.out.println(game);
     }
 
     @Test(expected = IllegalArgumentException.class)

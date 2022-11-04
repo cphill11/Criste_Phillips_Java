@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c221443-4029-4f46-a50d-49b68d82f624" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/TShirtControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/ConsoleRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/GameRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/repository/TShirtRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/service/CatalogServiceLayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/service/CatalogServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/service/CatalogServiceLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/InvoiceController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Console.java" beforeDir="false" />
@@ -31,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/InvoiceViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/TShirtViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../invoice-config/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../invoice-config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../invoice-config/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" afterDir="false" />
@@ -47,6 +45,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -96,33 +95,107 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.trilogyed.catalogconfig.controller" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig" />
       <recent name="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig" />
       <recent name="$PROJECT_DIR$/sql" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.trilogyed.catalogconfig.controller" />
       <recent name="com.trilogyed.catalogconfig.service" />
       <recent name="com.trilogyed.catalogconfig" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="CatalogMicroserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.CatalogMicroserviceApplication" />
+  <component name="RunManager" selected="JUnit.CatalogServiceLayerTest">
+    <configuration name="CatalogServiceLayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.trilogyed.catalogconfig.*" />
+          <option name="PATTERN" value="com.trilogyed.catalogconfig.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.service.CatalogServiceLayerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogServiceLayerTest.shouldFindAllGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.catalogconfig.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.service.CatalogServiceLayerTest" />
+      <option name="METHOD_NAME" value="shouldFindAllGames" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogServiceLayerTest.shouldFindGameByEsrb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.catalogconfig.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.service.CatalogServiceLayerTest" />
+      <option name="METHOD_NAME" value="shouldFindGameByEsrb" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogServiceLayerTest.shouldFindGameByStudio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.catalogconfig.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.service.CatalogServiceLayerTest" />
+      <option name="METHOD_NAME" value="shouldFindGameByStudio" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogServiceLayerTest.shouldFindGameByTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.catalogconfig.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.service.CatalogServiceLayerTest" />
+      <option name="METHOD_NAME" value="shouldFindGameByTitle" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CatalogMicroserviceApplication" />
+        <item itemvalue="JUnit.CatalogServiceLayerTest" />
+        <item itemvalue="JUnit.CatalogServiceLayerTest.shouldFindAllGames" />
+        <item itemvalue="JUnit.CatalogServiceLayerTest.shouldFindGameByStudio" />
+        <item itemvalue="JUnit.CatalogServiceLayerTest.shouldFindGameByTitle" />
+        <item itemvalue="JUnit.CatalogServiceLayerTest.shouldFindGameByEsrb" />
       </list>
     </recent_temporary>
   </component>

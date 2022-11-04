@@ -19,6 +19,10 @@ import java.util.Optional;
 
 @Component
 public class CatalogServiceLayer {
+    private final String GAME_ITEM_TYPE = "Game";
+    private final String CONSOLE_ITEM_TYPE = "Console";
+    private final String TSHIRT_ITEM_TYPE = "T-Shirt";
+
     GameRepository gameRepo;
     ConsoleRepository consoleRepo;
     TShirtRepository tShirtRepo;

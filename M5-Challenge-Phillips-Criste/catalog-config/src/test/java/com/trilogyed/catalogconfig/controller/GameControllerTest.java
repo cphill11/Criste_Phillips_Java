@@ -2,6 +2,7 @@ package com.trilogyed.catalogconfig.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.trilogyed.catalogconfig.service.CatalogServiceLayer;
+
 import com.trilogyed.catalogconfig.viewModel.GameViewModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +35,7 @@ public class GameControllerTest {
     private MockMvc mockMvc;
 
     // The aim of this unit test is to test the controller and NOT the service layer.
-    // Therefore mock the service layer.
+    // Therefore, mock the service layer.
     @MockBean
     private CatalogServiceLayer storeServiceLayer;
 

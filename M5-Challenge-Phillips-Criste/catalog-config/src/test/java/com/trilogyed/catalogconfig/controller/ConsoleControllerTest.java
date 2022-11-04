@@ -33,7 +33,7 @@ public class ConsoleControllerTest {
     private MockMvc mockMvc;
 
     // The aim of this unit test is to test the controller and NOT the service layer.
-    // Therefore mock the service layer.
+    // Therefore, mock the service layer.
     @MockBean
     private CatalogServiceLayer storeServiceLayer;
 
@@ -73,7 +73,7 @@ public class ConsoleControllerTest {
         // doReturn(outConsole).when(this.service).createConsole(inConsole);
         when(this.storeServiceLayer.createConsole(inConsole)).thenReturn(outConsole);
 
-        mockMvc.perform(
+        mockMvc.perform (
                 post("/console")
                         .content(mapper.writeValueAsString(inConsole)) //converts object to JSON and places into RequestBody
                         .contentType(MediaType.APPLICATION_JSON)
@@ -114,7 +114,7 @@ public class ConsoleControllerTest {
 
     @Test
     public void shouldReturn204StatusWithGoodUpdate() throws Exception {
-        //perform the call, pass argutments (path variables & requestBody), use objectMapper to convert objects
+        //perform the call, pass arguments (path variables & requestBody), use objectMapper to convert objects
         // from/to JSON format.
 
         //Mock "in"coming Console...
@@ -206,7 +206,7 @@ public class ConsoleControllerTest {
         consoleViewModelList.add(outConsole1);
 
         //So we are mocking (not executing the service layer) since we are testing the controller here.
-        //Remember: we are testing the methods in the CONTROLLER.
+        //Remember: we are testing the methodse in the CONTROLLER.
         when(storeServiceLayer.getConsoleByManufacturer("Sony")).thenReturn(consoleViewModelList);
 
         mockMvc.perform( MockMvcRequestBuilders
