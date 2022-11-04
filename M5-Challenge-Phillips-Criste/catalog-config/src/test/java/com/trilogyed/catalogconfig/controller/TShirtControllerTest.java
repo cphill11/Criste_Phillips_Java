@@ -33,7 +33,7 @@ public class TShirtControllerTest {
     private MockMvc mockMvc;
 
     // The aim of this unit test is to test the controller and NOT the service layer.
-    // Therefore mock the service layer.
+    // Therefore, mock the service layer.
     @MockBean
     private CatalogServiceLayer storeServiceLayer;
 
@@ -137,11 +137,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 51)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -596,11 +596,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -620,11 +620,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -642,11 +642,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -665,11 +665,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -687,11 +687,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -709,11 +709,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -732,11 +732,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -754,11 +754,11 @@ public class TShirtControllerTest {
 
         //Mock call to service layer...
         //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -780,7 +780,7 @@ public class TShirtControllerTest {
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
         //Act & Assert
-        this.mockMvc.perform(put("/tshirt")
+        this.mockMvc.perform(put("/tshirt/{id}", 31)
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())

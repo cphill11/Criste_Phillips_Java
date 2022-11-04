@@ -584,11 +584,9 @@ public class GameControllerTest {
     @Test
     public void shouldFailUpdateGameWithInvalidData() throws Exception {
 
-        //perform the call, pass argutments (path variables & requestBody), use objectMapper to convert objects
+        //perform the call, pass arguments (path variables & requestBody), use objectMapper to convert objects
         // from/to JSON format.
-
         //Arrange
-        //title...
         GameViewModel inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("");
         inGameViewModel.setEsrbRating("E10+");

@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9c221443-4029-4f46-a50d-49b68d82f624" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/ConsoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/ConsoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/TShirtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/catalogconfig/controller/TShirtController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/TShirtControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/catalogconfig/controller/TShirtControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/InvoiceController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Console.java" beforeDir="false" />
@@ -112,23 +116,7 @@
       <recent name="com.trilogyed.catalogconfig" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameControllerTest.shouldFailFindGamesWithInvalidData">
-    <configuration name="GameControllerTest.shouldFailCreateGameWithInvalidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalog-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.trilogyed.catalogconfig.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
-      <option name="METHOD_NAME" value="shouldFailCreateGameWithInvalidData" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TShirtControllerTest.shouldFailUpdateTShirtWithBadData">
     <configuration name="GameControllerTest.shouldFailFindGamesWithInvalidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
@@ -161,7 +149,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameControllerTest.shouldGetAllGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TShirtControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
         <pattern>
@@ -170,14 +158,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
-      <option name="METHOD_NAME" value="shouldGetAllGames" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.TShirtControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TShirtControllerTest.shouldFailUpdateTShirtWithBadData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalog-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.catalogconfig.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.TShirtControllerTest" />
+      <option name="METHOD_NAME" value="shouldFailUpdateTShirtWithBadData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameControllerTest.shouldGetGamesByStudio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TShirtControllerTest.shouldUpdateTShirt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalog-config" />
       <extension name="coverage">
         <pattern>
@@ -186,8 +189,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.trilogyed.catalogconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.GameControllerTest" />
-      <option name="METHOD_NAME" value="shouldGetGamesByStudio" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.catalogconfig.controller.TShirtControllerTest" />
+      <option name="METHOD_NAME" value="shouldUpdateTShirt" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -195,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TShirtControllerTest.shouldFailUpdateTShirtWithBadData" />
+        <item itemvalue="JUnit.TShirtControllerTest.shouldUpdateTShirt" />
+        <item itemvalue="JUnit.TShirtControllerTest" />
         <item itemvalue="JUnit.GameControllerTest.shouldFailFindGamesWithInvalidData" />
         <item itemvalue="JUnit.GameControllerTest.shouldFailUpdateGameWithInvalidData" />
-        <item itemvalue="JUnit.GameControllerTest.shouldFailCreateGameWithInvalidData" />
-        <item itemvalue="JUnit.GameControllerTest.shouldGetAllGames" />
-        <item itemvalue="JUnit.GameControllerTest.shouldGetGamesByStudio" />
       </list>
     </recent_temporary>
   </component>

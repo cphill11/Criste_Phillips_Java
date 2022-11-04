@@ -3,7 +3,6 @@ package com.trilogyed.catalogconfig.controller;
 import com.trilogyed.catalogconfig.service.CatalogServiceLayer;
 import com.trilogyed.catalogconfig.viewModel.GameViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
