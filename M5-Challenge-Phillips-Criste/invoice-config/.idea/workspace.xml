@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="bd4cef84-ad4b-474f-be88-779541c05b95" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../catalog-config/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/CatalogMicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/CatalogMicroserviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/controller/GameStoreControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/service/CatalogServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/src/main/java/com/trilogyed/catalogconfig/service/CatalogServiceLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-config/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/src/test/java/com/trilogyed/catalogconfig/controller/ConsoleControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-config/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/src/test/java/com/trilogyed/catalogconfig/controller/GameControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-config/src/test/java/com/trilogyed/catalogconfig/controller/TShirtControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/src/test/java/com/trilogyed/catalogconfig/controller/TShirtControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/InvoiceController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/model/Console.java" beforeDir="false" />
@@ -23,9 +30,7 @@
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/GameViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/InvoiceViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/TShirtViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../starter/gamestore/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/gamestore/sql/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../starter/gamestore/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/gamestore/sql/schema.sql" afterDir="false" />

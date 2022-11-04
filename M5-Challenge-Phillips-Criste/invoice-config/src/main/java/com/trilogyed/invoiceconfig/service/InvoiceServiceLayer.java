@@ -125,7 +125,7 @@ public class InvoiceServiceLayer {
             throw new IllegalArgumentException("Subtotal exceeds maximum purchase price of $999.99");
         }
 
-        //Validate State and Calc tax...
+        //Validate State and Calc tax
         BigDecimal tempTaxRate;
         Optional<Tax> returnVal = taxRepo.findById(invoice.getState());
 

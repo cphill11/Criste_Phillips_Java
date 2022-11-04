@@ -95,8 +95,8 @@ public class InvoiceServiceLayerTest {
         savedInvoice2.setState("NJ");
         savedInvoice2.setZipcode("08234");
         savedInvoice2.setItemType("Console");
-        savedInvoice2.setItemId(120);//pretending item exists with this id...
-        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));//pretending item exists with this price...
+        savedInvoice2.setItemId(120);
+        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));
         savedInvoice2.setQuantity(1);
         savedInvoice2.setSubtotal(savedInvoice2.getUnitPrice().multiply(new BigDecimal(savedInvoice2.getQuantity())));
         savedInvoice2.setTax(savedInvoice2.getSubtotal().multiply(new BigDecimal("0.08")));
@@ -111,8 +111,8 @@ public class InvoiceServiceLayerTest {
         savedInvoice3.setState("CA");
         savedInvoice3.setZipcode("90016");
         savedInvoice3.setItemType("Game");
-        savedInvoice3.setItemId(19);//pretending item exists with this id...
-        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice3.setItemId(19);
+        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice3.setQuantity(4);
         savedInvoice3.setSubtotal(savedInvoice3.getUnitPrice().multiply(new BigDecimal(savedInvoice3.getQuantity())));
         savedInvoice3.setTax(savedInvoice3.getSubtotal().multiply(new BigDecimal("0.09")));
@@ -257,8 +257,6 @@ public class InvoiceServiceLayerTest {
 
     private void setUpClientMock() {
         client = mock(GameStoreInvoiceFeignClient.class);
-        // client.getTShirtById(54) should return a tshirt
-        // price should be 19.99
         TShirt tShirt = new TShirt();
         tShirt.setPrice(new BigDecimal("19.99"));
         tShirt.setQuantity(3);
@@ -310,8 +308,8 @@ public class InvoiceServiceLayerTest {
         savedInvoice1.setState("NY");
         savedInvoice1.setZipcode("10016");
         savedInvoice1.setItemType("T-Shirt");
-        savedInvoice1.setItemId(12);//pretending item exists with this id...
-        savedInvoice1.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice1.setItemId(12);
+        savedInvoice1.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice1.setQuantity(2);
         savedInvoice1.setSubtotal(savedInvoice1.getUnitPrice().multiply(new BigDecimal(savedInvoice1.getQuantity())));
         savedInvoice1.setTax(savedInvoice1.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -326,8 +324,8 @@ public class InvoiceServiceLayerTest {
         savedInvoice2.setState("NJ");
         savedInvoice2.setZipcode("08234");
         savedInvoice2.setItemType("Console");
-        savedInvoice2.setItemId(120);//pretending item exists with this id...
-        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));//pretending item exists with this price...
+        savedInvoice2.setItemId(120);
+        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));
         savedInvoice2.setQuantity(1);
         savedInvoice2.setSubtotal(savedInvoice2.getUnitPrice().multiply(new BigDecimal(savedInvoice2.getQuantity())));
         savedInvoice2.setTax(savedInvoice2.getSubtotal().multiply(new BigDecimal("0.08")));
@@ -342,8 +340,8 @@ public class InvoiceServiceLayerTest {
         savedInvoice3.setState("CA");
         savedInvoice3.setZipcode("90016");
         savedInvoice3.setItemType("Game");
-        savedInvoice3.setItemId(19);//pretending item exists with this id...
-        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice3.setItemId(19);
+        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice3.setQuantity(4);
         savedInvoice3.setSubtotal(savedInvoice3.getUnitPrice().multiply(new BigDecimal(savedInvoice3.getQuantity())));
         savedInvoice3.setTax(savedInvoice3.getSubtotal().multiply(new BigDecimal("0.09")));

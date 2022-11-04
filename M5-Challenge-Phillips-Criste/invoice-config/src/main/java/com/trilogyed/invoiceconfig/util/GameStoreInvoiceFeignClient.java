@@ -7,7 +7,7 @@ import com.trilogyed.invoiceconfig.model.TShirt;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-// need feign client to call catalog API when needed
+// use feign client to call catalog API when needed
 @FeignClient(name = "gamestore-catalog")
 public interface GameStoreInvoiceFeignClient {
     @RequestMapping(value = "/game/{id}", method = RequestMethod.GET)

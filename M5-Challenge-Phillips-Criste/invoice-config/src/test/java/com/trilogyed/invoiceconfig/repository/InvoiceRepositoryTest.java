@@ -60,9 +60,7 @@ public class InvoiceRepositoryTest {
         tShirt1.setColor("Blue");
         tShirt1.setDescription("v-neck short sleeve");
 
-        //The double quotes forces the decimal point.
-        // an alternative to set BigDecimal is using:
-        // tShirt1.setPrice(new BigDecimal("15.99").setScale(2, RoundingMode.HALF_UP));
+        //The double quotes forces the decimal point
         tShirt1.setPrice(new BigDecimal("15.99"));
 
         tShirt1.setQuantity(8);
@@ -118,9 +116,6 @@ public class InvoiceRepositoryTest {
         tShirt1.setColor("Blue");
         tShirt1.setDescription("v-neck short sleeve");
 
-        //The double quotes forces the decimal point.
-        //an alternative to set BigDecimal is using:
-        //tShirt1.setPrice(new BigDecimal("15.99").setScale(2, RoundingMode.HALF_UP));
         tShirt1.setPrice(new BigDecimal("15.99"));
 
         tShirt1.setQuantity(8);

@@ -2,7 +2,6 @@ package com.trilogyed.invoiceconfig.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.trilogyed.invoiceconfig.model.Invoice;
 import com.trilogyed.invoiceconfig.service.InvoiceServiceLayer;
 import com.trilogyed.invoiceconfig.viewModel.InvoiceViewModel;
 import org.junit.Test;
@@ -35,8 +34,7 @@ public class InvoiceControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    // The aim of this unit test is to test the controller and NOT the service layer.
-    // Therefore, mock the service layer.
+    // Mocking service layer to test controllers
     @MockBean
     private InvoiceServiceLayer storeServiceLayer;
 
@@ -57,8 +55,8 @@ public class InvoiceControllerTest {
         inInvoice.setState("NY");
         inInvoice.setZipcode("10016");
         inInvoice.setItemType("T-Shirt");
-        inInvoice.setItemId(12);//pretending item exists with this id...
-        inInvoice.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoice.setItemId(12);//pretend item exists with this id
+        inInvoice.setUnitPrice(new BigDecimal("12.50"));//pretend item exists with this price
         inInvoice.setQuantity(2);
 
         InvoiceViewModel savedInvoice = new InvoiceViewModel();
@@ -68,8 +66,8 @@ public class InvoiceControllerTest {
         savedInvoice.setState("NY");
         savedInvoice.setZipcode("10016");
         savedInvoice.setItemType("T-Shirt");
-        savedInvoice.setItemId(12);//pretending item exists with this id...
-        savedInvoice.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice.setItemId(12);
+        savedInvoice.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice.setQuantity(2);
         savedInvoice.setSubtotal(inInvoice.getUnitPrice().multiply(new BigDecimal(inInvoice.getQuantity())));
         savedInvoice.setTax(savedInvoice.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -102,8 +100,8 @@ public class InvoiceControllerTest {
         savedInvoice.setState("NY");
         savedInvoice.setZipcode("10016");
         savedInvoice.setItemType("T-Shirt");
-        savedInvoice.setItemId(12);//pretending item exists with this id...
-        savedInvoice.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice.setItemId(12);
+        savedInvoice.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice.setQuantity(2);
         savedInvoice.setSubtotal(savedInvoice.getUnitPrice().multiply(new BigDecimal(savedInvoice.getQuantity())));
         savedInvoice.setTax(savedInvoice.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -113,7 +111,7 @@ public class InvoiceControllerTest {
 
         String outputJson = mapper.writeValueAsString(savedInvoice);
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getInvoice(22)).thenReturn(savedInvoice);
 
         //Act & Assert
@@ -122,7 +120,7 @@ public class InvoiceControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(outputJson));
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getInvoice(-1)).thenReturn(null);
 
         //Act & Assert
@@ -142,8 +140,8 @@ public class InvoiceControllerTest {
         savedInvoice1.setState("NY");
         savedInvoice1.setZipcode("10016");
         savedInvoice1.setItemType("T-Shirt");
-        savedInvoice1.setItemId(12);//pretending item exists with this id...
-        savedInvoice1.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice1.setItemId(12);
+        savedInvoice1.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice1.setQuantity(2);
         savedInvoice1.setSubtotal(savedInvoice1.getUnitPrice().multiply(new BigDecimal(savedInvoice1.getQuantity())));
         savedInvoice1.setTax(savedInvoice1.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -158,8 +156,8 @@ public class InvoiceControllerTest {
         savedInvoice2.setState("NJ");
         savedInvoice2.setZipcode("08234");
         savedInvoice2.setItemType("Console");
-        savedInvoice2.setItemId(120);//pretending item exists with this id...
-        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));//pretending item exists with this price...
+        savedInvoice2.setItemId(120);
+        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));
         savedInvoice2.setQuantity(1);
         savedInvoice2.setSubtotal(savedInvoice2.getUnitPrice().multiply(new BigDecimal(savedInvoice2.getQuantity())));
         savedInvoice2.setTax(savedInvoice2.getSubtotal().multiply(new BigDecimal("0.08")));
@@ -174,8 +172,8 @@ public class InvoiceControllerTest {
         savedInvoice3.setState("CA");
         savedInvoice3.setZipcode("90016");
         savedInvoice3.setItemType("Game");
-        savedInvoice3.setItemId(19);//pretending item exists with this id...
-        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice3.setItemId(19);
+        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice3.setQuantity(4);
         savedInvoice3.setSubtotal(savedInvoice3.getUnitPrice().multiply(new BigDecimal(savedInvoice3.getQuantity())));
         savedInvoice3.setTax(savedInvoice3.getSubtotal().multiply(new BigDecimal("0.09")));
@@ -190,7 +188,7 @@ public class InvoiceControllerTest {
 
         String outputJson = mapper.writeValueAsString(foundAllInvoices);
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getAllInvoices()).thenReturn(foundAllInvoices);
 
         //Act & Assert
@@ -199,14 +197,13 @@ public class InvoiceControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(outputJson));
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getAllInvoices()).thenReturn(null);
 
         //Act & Assert
         this.mockMvc.perform(get("/invoice"))
                 .andDo(print())
                 .andExpect(status().isNotFound());
-
     }
 
     @Test
@@ -219,8 +216,8 @@ public class InvoiceControllerTest {
         savedInvoice1.setState("NY");
         savedInvoice1.setZipcode("10016");
         savedInvoice1.setItemType("T-Shirt");
-        savedInvoice1.setItemId(12);//pretending item exists with this id...
-        savedInvoice1.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice1.setItemId(12);
+        savedInvoice1.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice1.setQuantity(2);
         savedInvoice1.setSubtotal(savedInvoice1.getUnitPrice().multiply(new BigDecimal(savedInvoice1.getQuantity())));
         savedInvoice1.setTax(savedInvoice1.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -235,8 +232,8 @@ public class InvoiceControllerTest {
         savedInvoice2.setState("NJ");
         savedInvoice2.setZipcode("08234");
         savedInvoice2.setItemType("Console");
-        savedInvoice2.setItemId(120);//pretending item exists with this id...
-        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));//pretending item exists with this price...
+        savedInvoice2.setItemId(120);
+        savedInvoice2.setUnitPrice(new BigDecimal("129.50"));
         savedInvoice2.setQuantity(1);
         savedInvoice2.setSubtotal(savedInvoice2.getUnitPrice().multiply(new BigDecimal(savedInvoice2.getQuantity())));
         savedInvoice2.setTax(savedInvoice2.getSubtotal().multiply(new BigDecimal("0.08")));
@@ -251,8 +248,8 @@ public class InvoiceControllerTest {
         savedInvoice3.setState("CA");
         savedInvoice3.setZipcode("90016");
         savedInvoice3.setItemType("Game");
-        savedInvoice3.setItemId(19);//pretending item exists with this id...
-        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        savedInvoice3.setItemId(19);
+        savedInvoice3.setUnitPrice(new BigDecimal("12.50"));
         savedInvoice3.setQuantity(4);
         savedInvoice3.setSubtotal(savedInvoice3.getUnitPrice().multiply(new BigDecimal(savedInvoice3.getQuantity())));
         savedInvoice3.setTax(savedInvoice3.getSubtotal().multiply(new BigDecimal("0.09")));
@@ -266,7 +263,7 @@ public class InvoiceControllerTest {
 
         String outputJson = mapper.writeValueAsString(foundAllInvoices);
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getInvoicesByCustomerName("Sandy Beach")).thenReturn(foundAllInvoices);
 
         //Act & Assert
@@ -275,7 +272,7 @@ public class InvoiceControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(outputJson));
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getInvoicesByCustomerName("no customer")).thenReturn(null);
 
         //Act & Assert
@@ -293,8 +290,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -305,10 +302,10 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName(null);
@@ -317,8 +314,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -329,12 +326,12 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //Street...
+        //Street
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
         inInvoiceMV.setStreet("");
@@ -342,8 +339,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -354,10 +351,10 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
@@ -366,8 +363,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -378,12 +375,12 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //City...
+        //City
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
         inInvoiceMV.setStreet("123 Main St");
@@ -391,8 +388,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -403,10 +400,10 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
@@ -415,8 +412,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -427,12 +424,12 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //state...
+        //state
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
         inInvoiceMV.setStreet("123 Main St");
@@ -440,8 +437,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -452,10 +449,10 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
@@ -464,8 +461,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState(null);
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -476,12 +473,12 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //Zip...
+        //Zip
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
         inInvoiceMV.setStreet("123 Main St");
@@ -489,8 +486,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -501,10 +498,10 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
@@ -513,8 +510,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode(null);
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -525,12 +522,12 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //Item type...
+        //Item type
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
         inInvoiceMV.setStreet("123 Main St");
@@ -538,8 +535,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -550,10 +547,10 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
@@ -562,8 +559,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType(null);
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(2);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -574,12 +571,12 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //Quantity...
+        //Quantity
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
         inInvoiceMV.setStreet("123 Main St");
@@ -587,8 +584,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(0);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -599,10 +596,10 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inInvoiceMV = new InvoiceViewModel();
         inInvoiceMV.setName("Rob Bank");
@@ -611,8 +608,8 @@ public class InvoiceControllerTest {
         inInvoiceMV.setState("NY");
         inInvoiceMV.setZipcode("10016");
         inInvoiceMV.setItemType("T-Shirt");
-        inInvoiceMV.setItemId(12);//pretending item exists with this id...
-        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));//pretending item exists with this price...
+        inInvoiceMV.setItemId(12);
+        inInvoiceMV.setUnitPrice(new BigDecimal("12.50"));
         inInvoiceMV.setQuantity(50001);
         inInvoiceMV.setSubtotal(inInvoiceMV.getUnitPrice().multiply(new BigDecimal(inInvoiceMV.getQuantity())));
         inInvoiceMV.setTax(inInvoiceMV.getSubtotal().multiply(new BigDecimal("0.06")));
@@ -623,10 +620,9 @@ public class InvoiceControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/invoice")
-                        .content(mapper.writeValueAsString(inInvoiceMV)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inInvoiceMV))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the console below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
-
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
     }
 }
