@@ -33,7 +33,7 @@ public class CatalogServiceLayer {
         this.consoleRepo = consoleRepo;
         this.tShirtRepo = tShirtRepo;
     }
-
+    //Game service layer methods
     public GameViewModel getGame(long id) {
         Optional<Game> game = gameRepo.findById(id);
         if (game == null)
@@ -44,8 +44,7 @@ public class CatalogServiceLayer {
 
     public GameViewModel createGame(GameViewModel gameViewModel) {
 
-        // Validate incoming Game Data in the view model.
-        // All validations were done using JSR303
+        // Validate incoming Game Data in the view model using JSR303
         if (gameViewModel == null) throw new IllegalArgumentException("No Game is passed! Game object is null!");
 
         Game game = new Game();
@@ -66,7 +65,7 @@ public class CatalogServiceLayer {
         if (gameViewModel == null)
             throw new IllegalArgumentException("No Game data is passed! Game object is null!");
 
-        //make sure the game exists. and if not, throw exception...
+        //ensure game exists; if not, throw exception
         if (this.getGame(gameViewModel.getId()) == null)
             throw new IllegalArgumentException("No such game to update.");
 
@@ -131,11 +130,10 @@ public class CatalogServiceLayer {
         return gvmList;
     }
 
-    //CONSOLE SERVICE LAYER METHODS...
+    //console service layer methods
     public ConsoleViewModel createConsole(ConsoleViewModel consoleViewModel) {
 
-        // Remember viewModel data was validated using JSR 303
-        // Validate incoming Console Data in the view model
+        // ViewModel data was validated using JSR 303 for incoming Console data
         if (consoleViewModel == null) throw new IllegalArgumentException("No Console is passed! Game object is null!");
 
         Console console = new Console();
@@ -163,7 +161,7 @@ public class CatalogServiceLayer {
         if (consoleViewModel == null)
             throw new IllegalArgumentException("No console data is passed! Console object is null!");
 
-        //make sure the Console exists. and if not, throw exception...
+        //ensure Console exists; if not, throw exception
         if (this.getConsoleById(consoleViewModel.getId()) == null)
             throw new IllegalArgumentException("No such console to update.");
 
@@ -205,12 +203,10 @@ public class CatalogServiceLayer {
         return cvmList;
     }
 
-    //TSHIRT SERVICE LAYER
-
+    //T-Shirt service layer
     public TShirtViewModel createTShirt(TShirtViewModel tShirtViewModel) {
 
-        // Remember model view has already been validated through JSR 303
-        // Validate incoming TShirt Data in the view model
+        // Model view validated through JSR 303 for incoming TShirt Data in the view model
         if (tShirtViewModel == null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
 
         TShirt tShirt = new TShirt();
@@ -234,12 +230,9 @@ public class CatalogServiceLayer {
     }
 
     public void updateTShirt(TShirtViewModel tShirtViewModel) {
-
-        // Remember model view has already been validated through JSR 303
-        // Validate incoming TShirt Data in the view model
         if (tShirtViewModel == null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
 
-        //make sure the Console exists. and if not, throw exception...
+        //ensure T-Shirt exists; if not, throw exception
         if (this.getTShirt(tShirtViewModel.getId()) == null)
             throw new IllegalArgumentException("No such TShirt to update.");
 
@@ -255,7 +248,6 @@ public class CatalogServiceLayer {
     }
 
     public void deleteTShirt(long id) {
-
         tShirtRepo.deleteById(id);
     }
 
@@ -293,7 +285,6 @@ public class CatalogServiceLayer {
     }
 
     //Helper Methods...
-
     public ConsoleViewModel buildConsoleViewModel(Console console) {
         ConsoleViewModel consoleViewModel = new ConsoleViewModel();
         consoleViewModel.setId(console.getId());
@@ -308,7 +299,6 @@ public class CatalogServiceLayer {
     }
 
     public GameViewModel buildGameViewModel(Game game) {
-
         GameViewModel gameViewModel = new GameViewModel();
         gameViewModel.setId(game.getId());
         gameViewModel.setTitle(game.getTitle());

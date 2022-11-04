@@ -32,8 +32,7 @@ public class TShirtControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    // The aim of this unit test is to test the controller and NOT the service layer.
-    // Therefore, mock the service layer.
+    // Service layer mocked to test controller & NOT service layer
     @MockBean
     private CatalogServiceLayer storeServiceLayer;
 
@@ -97,9 +96,6 @@ public class TShirtControllerTest {
         outputJson = mapper.writeValueAsString(savedTShirtViewModel);
 
         // Mocking DAO response
-        // This is another way to mock using mockito
-        // same as doReturn(gameViewModel).when(storeServiceLayer).getGame(8);
-        // We could also set up our mocks in a separate method, if we so chose
         when(storeServiceLayer.getTShirt(51)).thenReturn(savedTShirtViewModel);
 
         //Act & Assert
@@ -135,8 +131,7 @@ public class TShirtControllerTest {
         savedTShirtViewModel.setId(51);
 
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -164,9 +159,8 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Mock call to service layer; nothing to mock
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).deleteTShirt(51);
 
         //Act & Assert
@@ -212,7 +206,7 @@ public class TShirtControllerTest {
 
         outputJson = mapper.writeValueAsString(foundList);
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getTShirtByColor("SkyBlue")).thenReturn(foundList);
 
         //Act & Assert
@@ -221,7 +215,7 @@ public class TShirtControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(outputJson));
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getTShirtByColor("non-existent color")).thenReturn(null);
 
         //Act & Assert
@@ -266,7 +260,7 @@ public class TShirtControllerTest {
 
         outputJson = mapper.writeValueAsString(foundList);
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getTShirtBySize("S")).thenReturn(foundList);
 
         //Act & Assert
@@ -320,7 +314,7 @@ public class TShirtControllerTest {
 
         outputJson = mapper.writeValueAsString(foundList);
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getAllTShirts()).thenReturn(foundList);
 
         //Act & Assert
@@ -329,7 +323,7 @@ public class TShirtControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(outputJson));
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.getAllTShirts()).thenReturn(null);
 
         //Act & Assert
@@ -355,8 +349,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -377,7 +370,7 @@ public class TShirtControllerTest {
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -399,7 +392,7 @@ public class TShirtControllerTest {
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -420,7 +413,7 @@ public class TShirtControllerTest {
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -440,8 +433,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -460,8 +452,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -480,7 +471,6 @@ public class TShirtControllerTest {
         inTShirtViewModel.setSize("M");
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
-
 
         //Mock call to service layer...
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
@@ -503,7 +493,7 @@ public class TShirtControllerTest {
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -524,7 +514,7 @@ public class TShirtControllerTest {
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -545,7 +535,7 @@ public class TShirtControllerTest {
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -566,7 +556,7 @@ public class TShirtControllerTest {
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
 
-        //Mock call to service layer...
+        //Mock call to service layer
         when(storeServiceLayer.createTShirt(inTShirtViewModel)).thenReturn(null);
 
         //Act & Assert
@@ -594,8 +584,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -617,9 +606,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -640,8 +627,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -663,8 +649,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -685,8 +670,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -707,8 +691,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -730,8 +713,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -752,8 +734,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -774,8 +755,7 @@ public class TShirtControllerTest {
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateTShirt(inTShirtViewModel);
 
@@ -806,6 +786,5 @@ public class TShirtControllerTest {
         inTShirtViewModel.setSize("M");
 
         inputJson = mapper.writeValueAsString(inTShirtViewModel);
-
     }
 }

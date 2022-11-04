@@ -34,8 +34,7 @@ public class GameControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    // The aim of this unit test is to test the controller and NOT the service layer.
-    // Therefore, mock the service layer.
+    // Service layer mocked to test controller & NOT service layer
     @MockBean
     private CatalogServiceLayer storeServiceLayer;
 
@@ -103,10 +102,7 @@ public class GameControllerTest {
         outputJson = mapper.writeValueAsString(gameViewModel);
 
         // Mocking DAO response
-        // This is another way to mock using mockito
-        // same as doReturn(gameViewModel).when(storeServiceLayer).getGame(8);
-        // We could also set up our mocks in a separate method, if we so chose
-        when(storeServiceLayer.getGame(8)).thenReturn(gameViewModel);
+         when(storeServiceLayer.getGame(8)).thenReturn(gameViewModel);
 
         //Act & Assert
         this.mockMvc.perform(get("/game/8"))
@@ -150,8 +146,7 @@ public class GameControllerTest {
 
         inputJson = mapper.writeValueAsString(inGameViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
+        //Mock call to service layer; nothing to mock
         //Checking for the correct response status code
         doNothing().when(storeServiceLayer).updateGame(inGameViewModel);
 
@@ -180,9 +175,8 @@ public class GameControllerTest {
 
         inputJson = mapper.writeValueAsString(inGameViewModel);
 
-        //Mock call to service layer...
-        //Nothing to mock!
-        //Checking checking for the correct response status code
+        //Mock call to service layer; nothing to mock
+        //Checking for the correct response status code
         doNothing().when(storeServiceLayer).deleteGame(62);
 
         //Act & Assert
@@ -421,12 +415,8 @@ public class GameControllerTest {
 
     @Test
     public void shouldFailCreateGameWithInvalidData() throws Exception {
-
-        //perform the call, pass argutments (path variables & requestBody), use objectMapper to convert objects
-        // from/to JSON format.
-
         //Arrange
-        //title...
+        // Title
         GameViewModel inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("");
         inGameViewModel.setEsrbRating("E10+");
@@ -435,19 +425,18 @@ public class GameControllerTest {
         inGameViewModel.setStudio("Xbox Game Studios");
         inGameViewModel.setQuantity(5);
 
-        //So we are mocking (not executing the service layer) since we are testing the controller here.
-        // Remember: we are testing the code of the CONTROLLER methods.
+        // Mocking service layer to test controllers
         when(this.storeServiceLayer.createGame(inGameViewModel)).thenReturn(null);
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()) //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity())
         ;
 
-        //Esrb...
+        //Esrb
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
         inGameViewModel.setEsrbRating("");
@@ -458,13 +447,13 @@ public class GameControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
 
-        //Desc...
+        //Description
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
         inGameViewModel.setEsrbRating("E10+");
@@ -476,12 +465,12 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //Studio...
+        //Studio
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
         inGameViewModel.setEsrbRating("E10+");
@@ -493,12 +482,12 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
-        //Price...
+        //Price
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
         inGameViewModel.setEsrbRating("E10+");
@@ -510,10 +499,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
@@ -526,10 +515,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
@@ -542,10 +531,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         //quantity
         inGameViewModel = new GameViewModel();
@@ -559,10 +548,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
@@ -575,17 +564,14 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/game")
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
     }
 
     @Test
     public void shouldFailUpdateGameWithInvalidData() throws Exception {
-
-        //perform the call, pass arguments (path variables & requestBody), use objectMapper to convert objects
-        // from/to JSON format.
         //Arrange
         GameViewModel inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("");
@@ -596,16 +582,15 @@ public class GameControllerTest {
         inGameViewModel.setQuantity(5);
         inGameViewModel.setId(77);
 
-        //So we are mocking (not executing the service layer) since we are testing the controller here.
-        // Remember: we are testing the code of the CONTROLLER methods.
+        // Mocking service layer to test controllers
         when(this.storeServiceLayer.createGame(inGameViewModel)).thenReturn(null);
 
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()) //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity())
         ;
 
         //Esrb...
@@ -620,13 +605,13 @@ public class GameControllerTest {
 
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
 
-        //Desc...
+        //Description
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
         inGameViewModel.setEsrbRating("E10+");
@@ -639,10 +624,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         //Studio...
         inGameViewModel = new GameViewModel();
@@ -657,11 +642,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
-
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
         //Price...
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
@@ -675,10 +659,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
@@ -692,10 +676,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
@@ -709,10 +693,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         //quantity
         inGameViewModel = new GameViewModel();
@@ -727,10 +711,10 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
         inGameViewModel = new GameViewModel();
         inGameViewModel.setTitle("Halo");
@@ -744,18 +728,14 @@ public class GameControllerTest {
         //ResultActions x = mockMvc.perform(
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/game/{id}", 77)
-                        .content(mapper.writeValueAsString(inGameViewModel)) //converts object to JSON and places into RequestBody
+                        .content(mapper.writeValueAsString(inGameViewModel))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isUnprocessableEntity()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
     }
 
     @Test
     public void shouldFailFindGamesWithInvalidData() throws Exception {
-
-        //perform the call, pass argutments (path variables & requestBody), use objectMapper to convert objects
-        // from/to JSON format.
-
         //Arrange
         //invalid id...
         GameViewModel inGameViewModel = new GameViewModel();
@@ -767,43 +747,41 @@ public class GameControllerTest {
         inGameViewModel.setQuantity(5);
         inGameViewModel.setId(77);
 
-        //So we are mocking (not executing the service layer) since we are testing the controller here.
-        // Remember: we are testing the code of the CONTROLLER methods.
+        // Mocking service layer to test controllers
         when(this.storeServiceLayer.getGame(77)).thenReturn(null);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/game/77") //converts object to JSON and places into RequestBody
+                MockMvcRequestBuilders.get("/game/77")
                         .contentType(MediaType.APPLICATION_JSON))
-                    .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                    .andExpect(status().isNotFound()); //Expected response status code.
+                    .andDo(print())
+                    .andExpect(status().isNotFound());
 
         String badValue="bad value";
-        //So we are mocking (not executing the service layer) since we are testing the controller here.
-        // Remember: we are testing the code of the CONTROLLER methods.
+        // Mocking service layer to test controllers
         when(this.storeServiceLayer.getGameByStudio(badValue)).thenReturn(null);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/game/studio/{badValue}",badValue) //converts object to JSON and places into RequestBody
+                MockMvcRequestBuilders.get("/game/studio/{badValue}",badValue)
                     .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isNotFound()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isNotFound());
 
         when(this.storeServiceLayer.getGameByEsrb(badValue)).thenReturn(null);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/game/esrbrating/{badValue}",badValue) //converts object to JSON and places into RequestBody
+                MockMvcRequestBuilders.get("/game/esrbrating/{badValue}",badValue)
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isNotFound()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isNotFound());
 
 
         when(this.storeServiceLayer.getGameByTitle(badValue)).thenReturn(null);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/game/title/{badValue}",badValue) //converts object to JSON and places into RequestBody
+                MockMvcRequestBuilders.get("/game/title/{badValue}",badValue)
                         .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()) //for debugging purposes. Prints the request, handler,... and response objects to the game below.
-                .andExpect(status().isNotFound()); //Expected response status code.
+                .andDo(print())
+                .andExpect(status().isNotFound());
 
     }
 }

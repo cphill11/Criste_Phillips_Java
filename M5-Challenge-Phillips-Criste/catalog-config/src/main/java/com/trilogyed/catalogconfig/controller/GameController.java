@@ -17,7 +17,7 @@ public class GameController {
     @Autowired
     CatalogServiceLayer service;
 
-    //     create game
+    // create game
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public GameViewModel createGame(@RequestBody @Valid GameViewModel gameViewModel) {
@@ -102,5 +102,4 @@ public class GameController {
     public void deleteGame(@PathVariable("id") int gameId) {
         service.deleteGame(gameId);
     }
-
 }
