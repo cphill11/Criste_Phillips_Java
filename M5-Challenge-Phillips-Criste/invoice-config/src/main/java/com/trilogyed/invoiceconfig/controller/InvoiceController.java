@@ -11,7 +11,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RefreshScope
 @RequestMapping(value = "/invoice")
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class InvoiceController {

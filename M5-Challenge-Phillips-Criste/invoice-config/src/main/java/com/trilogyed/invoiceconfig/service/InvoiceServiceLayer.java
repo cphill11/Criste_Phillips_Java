@@ -37,7 +37,7 @@ public class InvoiceServiceLayer {
     GameStoreInvoiceFeignClient client;
 
     @Autowired
-    public InvoiceServiceLayer(InvoiceRepository invoiceRepo, TaxRepository taxRepo, ProcessingFeeRepository processingFeeRepo, GameStoreInvoiceFeignClient client) {
+    public InvoiceServiceLayer(InvoiceRepository invoiceRepo, TaxRepository taxRepo, ProcessingFeeRepository processingFeeRepo) {
         this.invoiceRepo = invoiceRepo;
         this.taxRepo = taxRepo;
         this.processingFeeRepo = processingFeeRepo;
