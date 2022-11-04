@@ -52,7 +52,6 @@ public class InvoiceServiceLayerTest {
         tShirt.setDescription("V-Neck");
         tShirt.setPrice(new BigDecimal("19.99"));
         tShirt.setQuantity(5);
-//        tShirt = service.createTShirt(tShirt);
 
         InvoiceViewModel invoiceViewModel = new InvoiceViewModel();
         invoiceViewModel.setName("John Jake");
@@ -141,8 +140,6 @@ public class InvoiceServiceLayerTest {
         tShirt.setDescription("sleeveless");
         tShirt.setPrice(new BigDecimal("400"));
         tShirt.setQuantity(30);
-//        tShirt = service.createTShirt(tShirt);
-
 
         InvoiceViewModel invoiceViewModel = new InvoiceViewModel();
         invoiceViewModel.setName("John Jake");
@@ -169,7 +166,6 @@ public class InvoiceServiceLayerTest {
         tShirt.setDescription("V-Neck");
         tShirt.setPrice(new BigDecimal("19.99"));
         tShirt.setQuantity(5);
-//        tShirt = service.createTShirt(tShirt);
 
         InvoiceViewModel invoiceViewModel = new InvoiceViewModel();
         invoiceViewModel.setName("John Jake");
@@ -222,7 +218,6 @@ public class InvoiceServiceLayerTest {
         tShirt.setDescription("V-Neck");
         tShirt.setPrice(new BigDecimal("19.99"));
         tShirt.setQuantity(5);
-//        tShirt = service.createTShirt(tShirt);
 
         InvoiceViewModel invoiceViewModel = new InvoiceViewModel();
         invoiceViewModel.setName("John Jake");
@@ -246,7 +241,6 @@ public class InvoiceServiceLayerTest {
         tShirt.setDescription("V-Neck");
         tShirt.setPrice(new BigDecimal("19.99"));
         tShirt.setQuantity(5);
-//        tShirt = service.createTShirt(tShirt);
 
         InvoiceViewModel invoiceViewModel = new InvoiceViewModel();
         invoiceViewModel.setName("John Jake");
@@ -271,7 +265,6 @@ public class InvoiceServiceLayerTest {
         doReturn(tShirt).when(client).getTShirtById(54);
     }
 
-        //DAO Mock
     private void setUpInvoiceRepositoryMock() {
         invoiceRepository = mock(InvoiceRepository.class);
 

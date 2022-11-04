@@ -23,9 +23,7 @@
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/GameViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/InvoiceViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/TShirtViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/gamestore/.idea/workspace.xml" afterDir="false" />
@@ -213,21 +211,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java</url>
-          <line>209</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
