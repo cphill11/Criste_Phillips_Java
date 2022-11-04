@@ -5,6 +5,7 @@ import com.trilogyed.invoiceconfig.repository.InvoiceRepository;
 import com.trilogyed.invoiceconfig.repository.ProcessingFeeRepository;
 import com.trilogyed.invoiceconfig.repository.TaxRepository;
 import com.trilogyed.invoiceconfig.viewModel.InvoiceViewModel;
+import com.trilogyed.invoiceconfig.viewModel.TShirtViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd4cef84-ad4b-474f-be88-779541c05b95" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/viewModel/ConsoleViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/viewModel/GameViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/viewModel/TShirtViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../catalog-config/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/InvoiceController.java" beforeDir="false" />
@@ -24,9 +27,7 @@
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/InvoiceViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/TShirtViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/controller/InvoiceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/controller/InvoiceControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/InvoiceRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/InvoiceRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/ProcessingFeeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/ProcessingFeeRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/TaxRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/TaxRepositoryTest.java" afterDir="false" />
@@ -102,41 +103,13 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.trilogyed.invoiceconfig.service" />
+      <recent name="com.trilogyed.invoiceconfig.viewModel" />
       <recent name="com.trilogyed.invoiceconfig" />
       <recent name="com.trilogyed.invoiceconfig.repository" />
       <recent name="com.trilogyed.invoiceconfig.controller" />
-      <recent name="com.trilogyed.invoiceconfig.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.InvoiceControllerTest">
-    <configuration name="InvoiceMicroserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.InvoiceMicroserviceApplication" />
-      <module name="invoice-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.trilogyed.invoiceconfig.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InvoiceControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="invoice-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.trilogyed.invoiceconfig.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.controller.InvoiceControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ProcessingFeeRepositoryTest">
     <configuration name="InvoiceRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="invoice-config" />
       <extension name="coverage">
@@ -167,12 +140,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InvoiceServiceLayerTest.shouldCreateFindInvoice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="invoice-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.invoiceconfig.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.service.InvoiceServiceLayerTest" />
+      <option name="METHOD_NAME" value="shouldCreateFindInvoice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProcessingFeeRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="invoice-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.invoiceconfig.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.repository.ProcessingFeeRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaxRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="invoice-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.invoiceconfig.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.repository.TaxRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.InvoiceControllerTest" />
+        <item itemvalue="JUnit.ProcessingFeeRepositoryTest" />
+        <item itemvalue="JUnit.TaxRepositoryTest" />
         <item itemvalue="JUnit.InvoiceRepositoryTest" />
         <item itemvalue="JUnit.InvoiceServiceLayerTest" />
-        <item itemvalue="Application.InvoiceMicroserviceApplication" />
+        <item itemvalue="JUnit.InvoiceServiceLayerTest.shouldCreateFindInvoice" />
       </list>
     </recent_temporary>
   </component>
