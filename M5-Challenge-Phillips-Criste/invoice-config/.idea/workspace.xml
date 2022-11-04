@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd4cef84-ad4b-474f-be88-779541c05b95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/viewModel/ConsoleViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/viewModel/GameViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/viewModel/TShirtViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../catalog-config/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-config/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/GameStoreControllerExceptionHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/controller/InvoiceController.java" beforeDir="false" />
@@ -28,9 +25,6 @@
       <change beforePath="$PROJECT_DIR$/../gamestore-invoicing/src/main/java/com/example/gamestoreinvoicing/viewModel/TShirtViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/InvoiceRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/InvoiceRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/ProcessingFeeRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/ProcessingFeeRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/TaxRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/repository/TaxRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/java/com/trilogyed/registry/RegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/application.properties" afterDir="false" />
@@ -109,22 +103,7 @@
       <recent name="com.trilogyed.invoiceconfig.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProcessingFeeRepositoryTest">
-    <configuration name="InvoiceRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="invoice-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.trilogyed.invoiceconfig.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.repository.InvoiceRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.InvoiceServiceLayerTest.shouldCreateFindInvoice">
     <configuration name="InvoiceServiceLayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="invoice-config" />
       <extension name="coverage">
@@ -156,6 +135,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InvoiceServiceLayerTest.shouldFailCreateFindInvoiceWithBadState" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="invoice-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.invoiceconfig.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.service.InvoiceServiceLayerTest" />
+      <option name="METHOD_NAME" value="shouldFailCreateFindInvoiceWithBadState" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InvoiceServiceLayerTest.shouldFailCreateFindInvoiceWithNoInventory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="invoice-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trilogyed.invoiceconfig.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.service" />
+      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.service.InvoiceServiceLayerTest" />
+      <option name="METHOD_NAME" value="shouldFailCreateFindInvoiceWithNoInventory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProcessingFeeRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="invoice-config" />
       <extension name="coverage">
@@ -171,28 +182,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaxRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="invoice-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.trilogyed.invoiceconfig.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.trilogyed.invoiceconfig.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.trilogyed.invoiceconfig.repository.TaxRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProcessingFeeRepositoryTest" />
-        <item itemvalue="JUnit.TaxRepositoryTest" />
-        <item itemvalue="JUnit.InvoiceRepositoryTest" />
-        <item itemvalue="JUnit.InvoiceServiceLayerTest" />
         <item itemvalue="JUnit.InvoiceServiceLayerTest.shouldCreateFindInvoice" />
+        <item itemvalue="JUnit.InvoiceServiceLayerTest.shouldFailCreateFindInvoiceWithBadState" />
+        <item itemvalue="JUnit.InvoiceServiceLayerTest.shouldFailCreateFindInvoiceWithNoInventory" />
+        <item itemvalue="JUnit.InvoiceServiceLayerTest" />
+        <item itemvalue="JUnit.ProcessingFeeRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -217,5 +213,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayer.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/trilogyed/invoiceconfig/service/InvoiceServiceLayerTest.java</url>
+          <line>209</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
