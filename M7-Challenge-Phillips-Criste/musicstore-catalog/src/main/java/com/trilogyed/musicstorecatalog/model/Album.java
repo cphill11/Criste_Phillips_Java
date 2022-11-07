@@ -1,7 +1,6 @@
 package com.trilogyed.musicstorecatalog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Table;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,22 +12,25 @@ import java.util.Objects;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "album")
 public class Album implements Serializable {
+    public Album() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "album_id")
     private long id;
     private String title;
 
-    @Column(name="artist_id")
+    @Column(name = "artist_id")
     private long artistID;
 
-    @Column(name="release_date")
+    @Column(name = "release_date")
     private Date releaseDate;
 
-    @Column(name="label_id")
+    @Column(name = "label_id")
     private long labelID;
 
-    @Column(name="list_price")
+    @Column(name = "list_price")
     private BigDecimal listPrice;
 
     public Album(long id, String title, long artistID, Date releaseDate, long labelID, BigDecimal listPrice) {

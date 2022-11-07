@@ -1,13 +1,8 @@
 package com.trilogyed.musicstorecatalog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Table;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,6 +11,10 @@ import java.util.Objects;
 @Table(name = "artist")
 
 public class Artist implements Serializable {
+    public Artist() {
+
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "artist_id")

@@ -1,20 +1,14 @@
 package com.trilogyed.musicstorecatalog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Table;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "label")
-
 public class Label implements Serializable {
 
     @Id
@@ -23,6 +17,9 @@ public class Label implements Serializable {
     private long id;
     private String name;
     private String website;
+
+    public Label() {
+    }
 
     public Label(long id, String name, String website) {
         this.id = id;
