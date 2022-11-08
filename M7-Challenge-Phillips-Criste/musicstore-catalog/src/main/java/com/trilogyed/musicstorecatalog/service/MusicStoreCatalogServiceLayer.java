@@ -35,7 +35,7 @@ public class MusicStoreCatalogServiceLayer {
 
 
     @Autowired
-    public MusicStoreCatalogServiceLayer( AlbumRepository albumRepo, ArtistRepository artistRepo, LabelRepository labelRepo, TrackRepository trackRepo) {
+    public MusicStoreCatalogServiceLayer(AlbumRepository albumRepo, ArtistRepository artistRepo, LabelRepository labelRepo, TrackRepository trackRepo) {
         this.albumRepo = albumRepo;
         this.artistRepo = artistRepo;
         this.labelRepo = labelRepo;
@@ -55,7 +55,7 @@ public class MusicStoreCatalogServiceLayer {
     public AlbumViewModel createAlbum(AlbumViewModel albumViewModel) {
 
         // Validate incoming Album Data in the view model using JSR303
-        if (albumViewModel == null) throw new IllegalArgumentException("No Album is passed! Album object is null!");
+        if (albumViewModel == null) throw new IllegalArgumentException("No Album is passed; Album object is null.");
 
         Album album = new Album();
         album.setTitle(albumViewModel.getTitle());
