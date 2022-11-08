@@ -25,7 +25,7 @@ public class Album implements Serializable {
 
     @NotNull
     @Column(name = "artist_id")
-    private long artistID;
+    private long artistId;
 
     @NotNull
     @Column(name = "release_date")
@@ -33,18 +33,18 @@ public class Album implements Serializable {
 
     @NotNull
     @Column(name = "label_id")
-    private long labelID;
+    private long labelId;
 
     @NotNull
     @Column(name = "list_price")
     private BigDecimal listPrice;
 
-    public Album(long id, String title, long artistID, Date releaseDate, long labelID, BigDecimal listPrice) {
+    public Album(long id, String title, long artistId, Date releaseDate, long labelId, BigDecimal listPrice) {
         this.id = id;
         this.title = title;
-        this.artistID = artistID;
+        this.artistId = artistId;
         this.releaseDate = releaseDate;
-        this.labelID = labelID;
+        this.labelId = labelId;
         this.listPrice = listPrice;
     }
 
@@ -64,12 +64,12 @@ public class Album implements Serializable {
         this.title = title;
     }
 
-    public long getArtistID() {
-        return artistID;
+    public long getArtistId() {
+        return artistId;
     }
 
-    public void setArtistID(long artistID) {
-        this.artistID = artistID;
+    public void setArtistId(long artistId) {
+        this.artistId = artistId;
     }
 
     public Date getReleaseDate() {
@@ -80,12 +80,12 @@ public class Album implements Serializable {
         this.releaseDate = releaseDate;
     }
 
-    public long getLabelID() {
-        return labelID;
+    public long getLabelId() {
+        return labelId;
     }
 
-    public void setLabelID(long labelID) {
-        this.labelID = labelID;
+    public void setLabelId(long labelId) {
+        this.labelId = labelId;
     }
 
     public BigDecimal getListPrice() {
@@ -101,12 +101,12 @@ public class Album implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Album)) return false;
         Album album = (Album) o;
-        return getId() == album.getId() && getArtistID() == album.getArtistID() && getLabelID() == album.getLabelID() && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getReleaseDate(), album.getReleaseDate()) && Objects.equals(getListPrice(), album.getListPrice());
+        return getId() == album.getId() && getArtistId() == album.getArtistId() && getLabelId() == album.getLabelId() && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getReleaseDate(), album.getReleaseDate()) && Objects.equals(getListPrice(), album.getListPrice());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getArtistID(), getReleaseDate(), getLabelID(), getListPrice());
+        return Objects.hash(getId(), getTitle(), getArtistId(), getReleaseDate(), getLabelId(), getListPrice());
     }
 
     @Override
@@ -114,9 +114,9 @@ public class Album implements Serializable {
         return "Album{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", artistID=" + artistID +
+                ", artistId=" + artistId +
                 ", releaseDate=" + releaseDate +
-                ", labelID=" + labelID +
+                ", labelId=" + labelId +
                 ", listPrice=" + listPrice +
                 '}';
     }

@@ -1,8 +1,13 @@
 package com.trilogyed.musicstorecatalog.controller;
 
+
 import com.trilogyed.musicstorecatalog.service.MusicStoreCatalogServiceLayer;
+import com.trilogyed.musicstorecatalog.viewModel.AlbumViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/album")
@@ -14,9 +19,9 @@ public class AlbumController {
     // create Album
 //    @PostMapping
 //    @ResponseStatus(HttpStatus.CREATED)
-//    public ConsoleViewModel createConsole(@RequestBody @Valid ConsoleViewModel consoleViewModel) {
-//        consoleViewModel = service.createConsole(consoleViewModel);
-//        return consoleViewModel;
+//    public AlbumViewModel createAlbum(@RequestBody @Valid AlbumViewModel albumViewModel) {
+//       albumViewModel = service.createAlbum(albumViewModel);
+//        return albumViewModel;
 //    }
 
 
