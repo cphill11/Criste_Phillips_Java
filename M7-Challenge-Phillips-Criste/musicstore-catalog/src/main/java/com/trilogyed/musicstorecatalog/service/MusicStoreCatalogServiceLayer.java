@@ -1,15 +1,19 @@
 package com.trilogyed.musicstorecatalog.service;
 
 import com.trilogyed.musicstorecatalog.model.Album;
+import com.trilogyed.musicstorecatalog.model.Artist;
 import com.trilogyed.musicstorecatalog.model.Label;
 import com.trilogyed.musicstorecatalog.repository.AlbumRepository;
 import com.trilogyed.musicstorecatalog.repository.ArtistRepository;
 import com.trilogyed.musicstorecatalog.repository.LabelRepository;
 import com.trilogyed.musicstorecatalog.repository.TrackRepository;
 import com.trilogyed.musicstorecatalog.viewModel.AlbumViewModel;
+import com.trilogyed.musicstorecatalog.viewModel.ArtistViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 // as worked on in Challenge 5
@@ -34,175 +38,126 @@ public class MusicStoreCatalogServiceLayer {
         this.labelRepo = labelRepo;
         this.trackRepo = trackRepo;
     }
-    //Album service layer methods
-//    public AlbumViewModel getAlbum(long id) {
-//        Optional<Album> album = albumRepo.findById(id);
-//        if (album == null)
-//            return null;
-//        else
-//            return buildAlbumViewModel(album.get());
-//    }
-//
-//    public AlbumViewModel createAlbum(AlbumViewModel albumViewModel) {
-//
-//        // Validate incoming Album Data in the view model using JSR303
-////        if (album == null) throw new IllegalArgumentException("No Album is passed! Album object is null!");
-//
-//        Album album = new Album();
-//        album.setTitle(albumViewModel.getTitle());
-//        album.setArtistId(albumViewModel.getArtistId());
-//        album.setReleaseDate(albumViewModel.getReleaseDate());
-//        album.setLabelId(albumViewModel.getLabelId());
-//        album.setListPrice(albumViewModel.getListPrice());
-//
-//        albumViewModel.setId(albumRepo.save(album).getId());
-//        return albumViewModel;
-//    }
+    // Album service layer methods
+    public AlbumViewModel getGame(long id) {
+        Optional<Album> album = albumRepo.findById(id);
+        if (album == null) {
+            return null;
+        } else {
+            return buildAlbumViewModel(album.get());
+      }
+    }
 
-//    public void updateGame(GameViewModel gameViewModel) {
-//
-//        //Validate incoming Game Data in the view model
-//        if (gameViewModel == null)
-//            throw new IllegalArgumentException("No Game data is passed! Game object is null!");
-//
-//        //ensure game exists; if not, throw exception
-//        if (this.getGame(gameViewModel.getId()) == null)
-//            throw new IllegalArgumentException("No such game to update.");
-//
-//        Game game = new Game();
-//        game.setId(gameViewModel.getId());
-//        game.setTitle(gameViewModel.getTitle());
-//        game.setEsrbRating(gameViewModel.getEsrbRating());
-//        game.setDescription(gameViewModel.getDescription());
-//        game.setPrice(gameViewModel.getPrice());
-//        game.setQuantity(gameViewModel.getQuantity());
-//        game.setStudio(gameViewModel.getStudio());
-//
-//        gameRepo.save(game);
-//    }
-//
-//    public void deleteGame(long id) {
-//        gameRepo.deleteById(id);
-//    }
-//
-//    public List<GameViewModel> getGameByEsrb(String esrb) {
-//        List<Game> gameList = gameRepo.findAllByEsrbRating(esrb);
-//        List<GameViewModel> gvmList = new ArrayList<>();
-//        if (gameList == null)
-//            return null;
-//        else
-//            gameList.stream().forEach(g -> gvmList.add(buildGameViewModel(g)));
-//        return gvmList;
-//    }
-//
-//    public List<GameViewModel> getGameByTitle(String title) {
-//        List<Game> gameList = gameRepo.findAllByTitle(title);
-//        List<GameViewModel> gvmList = new ArrayList<>();
-//        List<GameViewModel> exceptionList = null;
-//
-//        if (gameList == null) {
-//            return exceptionList;
-//        } else {
-//            gameList.stream().forEach(g -> gvmList.add(buildGameViewModel(g)));
-//        }
-//        return gvmList;
-//    }
-//
-//    public List<GameViewModel> getGameByStudio(String studio) {
-//        List<Game> gameList = gameRepo.findAllByStudio(studio);
-//        List<GameViewModel> gvmList = new ArrayList<>();
-//
-//        if (gameList == null)
-//            return null;
-//        else
-//            gameList.stream().forEach(g -> gvmList.add(buildGameViewModel(g)));
-//        return gvmList;
-//    }
-//
-//    public List<GameViewModel> getAllGames() {
-//        List<Game> gameList = gameRepo.findAll();
-//        List<GameViewModel> gvmList = new ArrayList<>();
-//
-//        if (gameList == null)
-//            return null;
-//        else
-//            gameList.stream().forEach(g -> gvmList.add(buildGameViewModel(g)));
-//        return gvmList;
-//    }
-//
-//    //console service layer methods
-//    public ConsoleViewModel createConsole(ConsoleViewModel consoleViewModel) {
-//
-//        // ViewModel data was validated using JSR 303 for incoming Console data
-//        if (consoleViewModel == null) throw new IllegalArgumentException("No Console is passed! Game object is null!");
-//
-//        Console console = new Console();
-//        console.setModel(consoleViewModel.getModel());
-//        console.setManufacturer(consoleViewModel.getManufacturer());
-//        console.setMemoryAmount(consoleViewModel.getMemoryAmount());
-//        console.setProcessor(consoleViewModel.getProcessor());
-//        console.setPrice(consoleViewModel.getPrice());
-//        console.setQuantity(consoleViewModel.getQuantity());
-//
-//        return buildConsoleViewModel(consoleRepo.save(console));
-//    }
-//
-//    public ConsoleViewModel getConsoleById(long id) {
-//        Optional<Console> console = consoleRepo.findById(id);
-//        if (console == null)
-//            return null;
-//        else
-//            return buildConsoleViewModel(console.get());
-//    }
-//
-//    public void updateConsole(ConsoleViewModel consoleViewModel) {
-//
-//        //Validate incoming Console Data in the view model
-//        if (consoleViewModel == null)
-//            throw new IllegalArgumentException("No console data is passed! Console object is null!");
-//
-//        //ensure Console exists; if not, throw exception
-//        if (this.getConsoleById(consoleViewModel.getId()) == null)
-//            throw new IllegalArgumentException("No such console to update.");
-//
-//        Console console = new Console();
-//        console.setId(consoleViewModel.getId());
-//        console.setModel(consoleViewModel.getModel());
-//        console.setManufacturer(consoleViewModel.getManufacturer());
-//        console.setMemoryAmount(consoleViewModel.getMemoryAmount());
-//        console.setProcessor(consoleViewModel.getProcessor());
-//        console.setPrice(consoleViewModel.getPrice());
-//        console.setQuantity(consoleViewModel.getQuantity());
-//
-//        consoleRepo.save(console);
-//    }
-//
-//    public void deleteConsole(long id) {
-//        consoleRepo.deleteById(id);
-//    }
-//
-//    public List<ConsoleViewModel> getConsoleByManufacturer(String manufacturer) {
-//        List<Console> consoleList = consoleRepo.findAllByManufacturer(manufacturer);
-//        List<ConsoleViewModel> cvmList = new ArrayList<>();
-//
-//        if (consoleList == null)
-//            return null;
-//        else
-//            consoleList.stream().forEach(c -> cvmList.add(buildConsoleViewModel(c)));
-//        return cvmList;
-//    }
-//
-//    public List<ConsoleViewModel> getAllConsoles() {
-//        List<Console> consoleList = consoleRepo.findAll();
-//        List<ConsoleViewModel> cvmList = new ArrayList<>();
-//
-//        if (consoleList == null)
-//            return null;
-//        else
-//            consoleList.stream().forEach(c -> cvmList.add(buildConsoleViewModel(c)));
-//        return cvmList;
-//    }
-//
+    public AlbumViewModel createGame(AlbumViewModel albumViewModel) {
+
+        // Validate incoming Album Data in the view model using JSR303
+        if (albumViewModel == null) throw new IllegalArgumentException("No Album is passed! Album object is null!");
+
+        Album album = new Album();
+        album.setTitle(albumViewModel.getTitle());
+        album.setArtistId(albumViewModel.getArtistId());
+        album.setReleaseDate(albumViewModel.getReleaseDate());
+        album.setLabelId(albumViewModel.getLabelId());
+        album.setListPrice(albumViewModel.getListPrice());
+
+        albumViewModel.setId(albumRepo.save(album).getId());
+        return albumViewModel;
+    }
+
+    public void updateAlbum(AlbumViewModel albumViewModel) {
+
+        //Validate incoming Album Data in the view model
+        if (albumViewModel == null)
+            throw new IllegalArgumentException("No Album data is passed! Album object is null!");
+
+        //ensure album exists; if not, throw exception
+        if (this.getAlbum(albumViewModel.getId()) == null)
+            throw new IllegalArgumentException("No such album to update.");
+
+        Album album = new Album();
+        album.setId(albumViewModel.getId());
+        album.setTitle(albumViewModel.getTitle());
+        album.setArtistId(albumViewModel.getArtistId());
+        album.setReleaseDate(albumViewModel.getReleaseDate());
+        album.setLabelId(albumViewModel.getLabelId());
+        album.setListPrice(albumViewModel.getListPrice());
+
+        albumRepo.save(album);
+    }
+
+    public void deleteAlbum(long id) {
+        albumRepo.deleteById(id);
+    }
+
+    public List<AlbumViewModel> getAllAlbums() {
+        List<Album> gameList = albumRepo.findAll();
+        List<AlbumViewModel> gvmList = new ArrayList<>();
+
+        if (albumList == null)
+            return null;
+        else
+            albumList.stream().forEach(g -> avmList.add(buildAlbumViewModel(g)));
+        return avmList;
+    }
+
+    // Artist service layer methods
+    public ArtistViewModel createArtist(ArtistViewModel artistViewModel) {
+        // ViewModel data was validated using JSR 303 for incoming Artist data
+        if (artistViewModel == null) throw new IllegalArgumentException("No Artist is passed! Artist object is null!");
+
+        Artist artist = new Artist();
+        artist.setName(artistViewModel.getName());
+        artist.setInstagram(artistViewModel.getInstagram());
+        artist.setTwitter(artistViewModel.getTwitter());
+
+        return buildArtistViewModel(artistRepo.save(artist));
+    }
+
+    public ArtistViewModel getArtistById(long id) {
+        Optional<Artist> artist = artistRepo.findById(id);
+        if (artist == null)
+            return null;
+        else
+            return buildArtistViewModel(artist.get());
+    }
+
+    public void updateConsole(ArtistViewModel consoleViewModel) {
+
+        //Validate incoming Console Data in the view model
+        if (consoleViewModel == null)
+            throw new IllegalArgumentException("No console data is passed! Console object is null!");
+
+        //ensure Console exists; if not, throw exception
+        if (this.getConsoleById(consoleViewModel.getId()) == null)
+            throw new IllegalArgumentException("No such console to update.");
+
+        Console console = new Console();
+        console.setId(consoleViewModel.getId());
+        console.setModel(consoleViewModel.getModel());
+        console.setManufacturer(consoleViewModel.getManufacturer());
+        console.setMemoryAmount(consoleViewModel.getMemoryAmount());
+        console.setProcessor(consoleViewModel.getProcessor());
+        console.setPrice(consoleViewModel.getPrice());
+        console.setQuantity(consoleViewModel.getQuantity());
+
+        consoleRepo.save(console);
+    }
+
+    public void deleteConsole(long id) {
+        consoleRepo.deleteById(id);
+    }
+
+    public List<ArtistViewModel> getAllConsoles() {
+        List<Console> consoleList = consoleRepo.findAll();
+        List<ConsoleViewModel> cvmList = new ArrayList<>();
+
+        if (consoleList == null)
+            return null;
+        else
+            consoleList.stream().forEach(c -> cvmList.add(buildConsoleViewModel(c)));
+        return cvmList;
+    }
+
 //    //T-Shirt service layer
 //    public TShirtViewModel createTShirt(TShirtViewModel tShirtViewModel) {
 //
