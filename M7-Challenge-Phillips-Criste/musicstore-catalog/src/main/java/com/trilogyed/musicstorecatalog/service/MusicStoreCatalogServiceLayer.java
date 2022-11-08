@@ -3,12 +3,15 @@ package com.trilogyed.musicstorecatalog.service;
 import com.trilogyed.musicstorecatalog.model.Album;
 import com.trilogyed.musicstorecatalog.model.Artist;
 import com.trilogyed.musicstorecatalog.model.Label;
+import com.trilogyed.musicstorecatalog.model.Track;
 import com.trilogyed.musicstorecatalog.repository.AlbumRepository;
 import com.trilogyed.musicstorecatalog.repository.ArtistRepository;
 import com.trilogyed.musicstorecatalog.repository.LabelRepository;
 import com.trilogyed.musicstorecatalog.repository.TrackRepository;
 import com.trilogyed.musicstorecatalog.viewModel.AlbumViewModel;
 import com.trilogyed.musicstorecatalog.viewModel.ArtistViewModel;
+import com.trilogyed.musicstorecatalog.viewModel.LabelViewModel;
+import com.trilogyed.musicstorecatalog.viewModel.TrackViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -39,7 +42,7 @@ public class MusicStoreCatalogServiceLayer {
         this.trackRepo = trackRepo;
     }
     // Album service layer methods
-    public AlbumViewModel getGame(long id) {
+    public AlbumViewModel getAlbum(long id) {
         Optional<Album> album = albumRepo.findById(id);
         if (album == null) {
             return null;
@@ -48,7 +51,8 @@ public class MusicStoreCatalogServiceLayer {
       }
     }
 
-    public AlbumViewModel createGame(AlbumViewModel albumViewModel) {
+    // create Album
+    public AlbumViewModel createAlbum(AlbumViewModel albumViewModel) {
 
         // Validate incoming Album Data in the view model using JSR303
         if (albumViewModel == null) throw new IllegalArgumentException("No Album is passed! Album object is null!");
@@ -64,12 +68,10 @@ public class MusicStoreCatalogServiceLayer {
         return albumViewModel;
     }
 
+    // update existing Album
     public void updateAlbum(AlbumViewModel albumViewModel) {
-
-        //Validate incoming Album Data in the view model
         if (albumViewModel == null)
-            throw new IllegalArgumentException("No Album data is passed! Album object is null!");
-
+            throw new IllegalArgumentException("No Album data is passed; Album object is null.");
         //ensure album exists; if not, throw exception
         if (this.getAlbum(albumViewModel.getId()) == null)
             throw new IllegalArgumentException("No such album to update.");
@@ -85,33 +87,24 @@ public class MusicStoreCatalogServiceLayer {
         albumRepo.save(album);
     }
 
+    // delete existing Album
     public void deleteAlbum(long id) {
         albumRepo.deleteById(id);
     }
 
+    // get All Albums
     public List<AlbumViewModel> getAllAlbums() {
-        List<Album> gameList = albumRepo.findAll();
-        List<AlbumViewModel> gvmList = new ArrayList<>();
+        List<Album> albumList = albumRepo.findAll();
+        List<AlbumViewModel> avmList = new ArrayList<>();
 
         if (albumList == null)
             return null;
         else
-            albumList.stream().forEach(g -> avmList.add(buildAlbumViewModel(g)));
+            albumList.stream().forEach(al -> avmList.add(buildAlbumViewModel(al)));
         return avmList;
     }
 
     // Artist service layer methods
-    public ArtistViewModel createArtist(ArtistViewModel artistViewModel) {
-        // ViewModel data was validated using JSR 303 for incoming Artist data
-        if (artistViewModel == null) throw new IllegalArgumentException("No Artist is passed! Artist object is null!");
-
-        Artist artist = new Artist();
-        artist.setName(artistViewModel.getName());
-        artist.setInstagram(artistViewModel.getInstagram());
-        artist.setTwitter(artistViewModel.getTwitter());
-
-        return buildArtistViewModel(artistRepo.save(artist));
-    }
 
     public ArtistViewModel getArtistById(long id) {
         Optional<Artist> artist = artistRepo.findById(id);
@@ -121,160 +114,206 @@ public class MusicStoreCatalogServiceLayer {
             return buildArtistViewModel(artist.get());
     }
 
-    public void updateConsole(ArtistViewModel consoleViewModel) {
+    // create Artist
+    public ArtistViewModel createArtist(ArtistViewModel artistViewModel) {
+        if (artistViewModel == null) throw new IllegalArgumentException("No Artist is passed; Artist object is null.");
 
-        //Validate incoming Console Data in the view model
-        if (consoleViewModel == null)
-            throw new IllegalArgumentException("No console data is passed! Console object is null!");
+        Artist artist = new Artist();
+        artist.setName(artistViewModel.getName());
+        artist.setInstagram(artistViewModel.getInstagram());
+        artist.setTwitter(artistViewModel.getTwitter());
 
-        //ensure Console exists; if not, throw exception
-        if (this.getConsoleById(consoleViewModel.getId()) == null)
-            throw new IllegalArgumentException("No such console to update.");
-
-        Console console = new Console();
-        console.setId(consoleViewModel.getId());
-        console.setModel(consoleViewModel.getModel());
-        console.setManufacturer(consoleViewModel.getManufacturer());
-        console.setMemoryAmount(consoleViewModel.getMemoryAmount());
-        console.setProcessor(consoleViewModel.getProcessor());
-        console.setPrice(consoleViewModel.getPrice());
-        console.setQuantity(consoleViewModel.getQuantity());
-
-        consoleRepo.save(console);
+        return buildArtistViewModel(artistRepo.save(artist));
     }
 
-    public void deleteConsole(long id) {
-        consoleRepo.deleteById(id);
+    // update Artist
+    public void updateArtist(ArtistViewModel artistViewModel) {
+        if (artistViewModel == null)
+            throw new IllegalArgumentException("No Artist data is passed; Artist object is null.");
+        if (this.getArtistById(artistViewModel.getId()) == null)
+            throw new IllegalArgumentException("No such Artist to update.");
+
+        Artist artist = new Artist();
+        artist.setId(artistViewModel.getId());
+        artist.setName(artistViewModel.getName());
+        artist.setInstagram(artistViewModel.getInstagram());
+        artist.setTwitter(artistViewModel.getTwitter());
+
+        artistRepo.save(artist);
     }
 
-    public List<ArtistViewModel> getAllConsoles() {
-        List<Console> consoleList = consoleRepo.findAll();
-        List<ConsoleViewModel> cvmList = new ArrayList<>();
+    // delete Artist by ID
+    public void deleteArtist(long id) {
+        artistRepo.deleteById(id);
+    }
 
-        if (consoleList == null)
+    // get All Artists
+    public List<ArtistViewModel> getAllArtists() {
+        List<Artist> artistList = artistRepo.findAll();
+        List<ArtistViewModel> arvmList = new ArrayList<>();
+
+        if (artistList == null)
             return null;
         else
-            consoleList.stream().forEach(c -> cvmList.add(buildConsoleViewModel(c)));
-        return cvmList;
+            artistList.stream().forEach(ar -> arvmList.add(buildArtistViewModel(ar)));
+        return arvmList;
     }
 
-//    //T-Shirt service layer
-//    public TShirtViewModel createTShirt(TShirtViewModel tShirtViewModel) {
-//
-//        // Model view validated through JSR 303 for incoming TShirt Data in the view model
-//        if (tShirtViewModel == null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
-//
-//        TShirt tShirt = new TShirt();
-//        tShirt.setSize(tShirtViewModel.getSize());
-//        tShirt.setColor(tShirtViewModel.getColor());
-//        tShirt.setDescription(tShirtViewModel.getDescription());
-//        tShirt.setPrice(tShirtViewModel.getPrice());
-//        tShirt.setQuantity(tShirtViewModel.getQuantity());
-//
-//        tShirt = tShirtRepo.save(tShirt);
-//
-//        return buildTShirtViewModel(tShirt);
-//    }
-//
-//    public TShirtViewModel getTShirt(long id) {
-//        Optional<TShirt> tShirt = tShirtRepo.findById(id);
-//        if (tShirt == null)
-//            return null;
-//        else
-//            return buildTShirtViewModel(tShirt.get());
-//    }
-//
-//    public void updateTShirt(TShirtViewModel tShirtViewModel) {
-//        if (tShirtViewModel == null) throw new IllegalArgumentException("No TShirt is passed! TShirt object is null!");
-//
-//        //ensure T-Shirt exists; if not, throw exception
-//        if (this.getTShirt(tShirtViewModel.getId()) == null)
-//            throw new IllegalArgumentException("No such TShirt to update.");
-//
-//        TShirt tShirt = new TShirt();
-//        tShirt.setId(tShirtViewModel.getId());
-//        tShirt.setSize(tShirtViewModel.getSize());
-//        tShirt.setColor(tShirtViewModel.getColor());
-//        tShirt.setDescription(tShirtViewModel.getDescription());
-//        tShirt.setPrice(tShirtViewModel.getPrice());
-//        tShirt.setQuantity(tShirtViewModel.getQuantity());
-//
-//        tShirtRepo.save(tShirt);
-//    }
-//
-//    public void deleteTShirt(long id) {
-//        tShirtRepo.deleteById(id);
-//    }
-//
-//    public List<TShirtViewModel> getTShirtByColor(String color) {
-//        List<TShirt> tShirtList = tShirtRepo.findAllByColor(color);
-//        List<TShirtViewModel> tvmList = new ArrayList<>();
-//
-//        if (tShirtList == null)
-//            return null;
-//        else
-//            tShirtList.stream().forEach(t -> tvmList.add(buildTShirtViewModel(t)));
-//        return tvmList;
-//    }
-//
-//    public List<TShirtViewModel> getTShirtBySize(String size) {
-//        List<TShirt> tShirtList = tShirtRepo.findAllBySize(size);
-//        List<TShirtViewModel> tvmList = new ArrayList<>();
-//
-//        if (tShirtList == null)
-//            return null;
-//        else
-//            tShirtList.stream().forEach(t -> tvmList.add(buildTShirtViewModel(t)));
-//        return tvmList;
-//    }
-//
-//    public List<TShirtViewModel> getAllTShirts() {
-//        List<TShirt> tShirtList = tShirtRepo.findAll();
-//        List<TShirtViewModel> tvmList = new ArrayList<>();
-//
-//        if (tShirtList == null)
-//            return null;
-//        else
-//            tShirtList.stream().forEach(t -> tvmList.add(buildTShirtViewModel(t)));
-//        return tvmList;
-//    }
-//
-//    //Helper Methods...
-//    public ConsoleViewModel buildConsoleViewModel(Console console) {
-//        ConsoleViewModel consoleViewModel = new ConsoleViewModel();
-//        consoleViewModel.setId(console.getId());
-//        consoleViewModel.setModel(console.getModel());
-//        consoleViewModel.setManufacturer(console.getManufacturer());
-//        consoleViewModel.setMemoryAmount(console.getMemoryAmount());
-//        consoleViewModel.setProcessor(console.getProcessor());
-//        consoleViewModel.setPrice(console.getPrice());
-//        consoleViewModel.setQuantity(console.getQuantity());
-//
-//        return consoleViewModel;
-//    }
-//
-//    public GameViewModel buildGameViewModel(Game game) {
-//        GameViewModel gameViewModel = new GameViewModel();
-//        gameViewModel.setId(game.getId());
-//        gameViewModel.setTitle(game.getTitle());
-//        gameViewModel.setEsrbRating(game.getEsrbRating());
-//        gameViewModel.setDescription(game.getDescription());
-//        gameViewModel.setPrice(game.getPrice());
-//        gameViewModel.setStudio(game.getStudio());
-//        gameViewModel.setQuantity(game.getQuantity());
-//
-//        return gameViewModel;
-//    }
-//
-//    public TShirtViewModel buildTShirtViewModel(TShirt tShirt) {
-//        TShirtViewModel tShirtViewModel = new TShirtViewModel();
-//        tShirtViewModel.setId(tShirt.getId());
-//        tShirtViewModel.setSize(tShirt.getSize());
-//        tShirtViewModel.setColor(tShirt.getColor());
-//        tShirtViewModel.setDescription(tShirt.getDescription());
-//        tShirtViewModel.setPrice(tShirt.getPrice());
-//        tShirtViewModel.setQuantity(tShirt.getQuantity());
-//
-//        return tShirtViewModel;
-//    }
+
+
+    // Label service layer methods
+    public LabelViewModel getLabel(long id) {
+        Optional<Label> label = labelRepo.findById(id);
+        if (label == null)
+            return null;
+        else
+            return buildLabelViewModel(label.get());
+    }
+
+    // create Label
+    public LabelViewModel createLabel(LabelViewModel labelViewModel) {
+        if (labelViewModel == null) throw new IllegalArgumentException("No Label is passed; Label object is null.");
+
+        Label label = new Label();
+        label.setName(labelViewModel.getName());
+        label.setWebsite(labelViewModel.getWebsite());
+
+        label = labelRepo.save(label);
+
+        return buildLabelViewModel(label);
+    }
+
+    // update Label
+    public void updateLabel(LabelViewModel labelViewModel) {
+        if (labelViewModel == null) throw new IllegalArgumentException("No Label is passed; Label object is null.");
+
+        if (this.getLabel(labelViewModel.getId()) == null)
+            throw new IllegalArgumentException("No such label to update.");
+
+        Label label = new Label();
+        label.setId(labelViewModel.getId());
+        label.setName(labelViewModel.getName());
+        label.setWebsite(labelViewModel.getWebsite());
+
+        labelRepo.save(label);
+    }
+    // delete Label By ID
+    public void deleteLabel(long id) {
+       labelRepo.deleteById(id);
+    }
+
+    // get all Labels
+    public List<LabelViewModel> getAllLabels() {
+        List<Label> labelList = labelRepo.findAll();
+        List<LabelViewModel> lvmList = new ArrayList<>();
+
+        if (labelList == null)
+            return null;
+        else
+            labelList.stream().forEach(l -> lvmList.add(buildLabelViewModel(l)));
+        return lvmList;
+    }
+
+
+    // Track Service Layer methods
+    public TrackViewModel getTrack(long id) {
+        Optional<Track> track = trackRepo.findById(id);
+        if (track == null)
+            return null;
+        else
+            return buildTrackViewModel(track.get());
+    }
+
+    // create Track
+    public TrackViewModel createTrack(TrackViewModel trackViewModel) {
+        if (trackViewModel == null) throw new IllegalArgumentException("No Track is passed; Track object is null.");
+
+        Track track = new Track();
+        track.setAlbumId(trackViewModel.getAlbumId());
+        track.setTitle(trackViewModel.getTitle());
+        track.setRunTime(trackViewModel.getRunTime());
+
+        trackViewModel.setId(trackRepo.save(track).getId());
+        return trackViewModel;
+    }
+
+    // update Track
+    public void updateTrack(TrackViewModel trackViewModel) {
+        if (trackViewModel == null)
+            throw new IllegalArgumentException("No Track is passed; Track object is null.");
+
+        if (this.getTrack(trackViewModel.getId()) == null)
+            throw new IllegalArgumentException("No such track to update.");
+
+        Track track = new Track();
+       track.setId(trackViewModel.getId());
+        track.setAlbumId(trackViewModel.getAlbumId());
+        track.setTitle(trackViewModel.getTitle());
+        track.setRunTime(trackViewModel.getRunTime());
+
+        trackRepo.save(track);
+    }
+
+    // delete Track
+    public void deleteTrack(long id) {
+        trackRepo.deleteById(id);
+    }
+
+   // get all Tracks
+    public List<TrackViewModel> getAllTracks() {
+        List<Track> trackList = trackRepo.findAll();
+        List<TrackViewModel> tvmList = new ArrayList<>();
+
+        if (trackList == null)
+            return null;
+        else
+            trackList.stream().forEach(t -> tvmList.add(buildTrackViewModel(t)));
+        return tvmList;
+    }
+
+
+    // Helper Album Method
+    public AlbumViewModel buildAlbumViewModel(Album album) {
+        AlbumViewModel albumViewModel = new AlbumViewModel();
+        albumViewModel.setId(album.getId());
+        albumViewModel.setTitle(album.getTitle());
+        albumViewModel.setArtistId(album.getArtistId());
+        albumViewModel.setReleaseDate(album.getReleaseDate());
+        albumViewModel.setLabelId(album.getLabelId());
+        albumViewModel.setListPrice(album.getListPrice());
+
+        return albumViewModel;
+    }
+
+    // Helper Artist Method
+    public ArtistViewModel buildArtistViewModel(Artist artist) {
+        ArtistViewModel artistViewModel = new ArtistViewModel();
+        artistViewModel.setId(artist.getId());
+        artistViewModel.setName(artist.getName());
+        artistViewModel.setInstagram(artist.getInstagram());
+        artistViewModel.setTwitter(artist.getTwitter());
+
+        return artistViewModel;
+    }
+
+    // Helper Label Method
+    public LabelViewModel buildLabelViewModel(Label label) {
+        LabelViewModel labelViewModel = new LabelViewModel();
+        labelViewModel.setId(label.getId());
+        labelViewModel.setName(label.getName());
+        labelViewModel.setWebsite(label.getWebsite());
+
+        return labelViewModel;
+    }
+
+    // Helper Track Method
+    public TrackViewModel buildTrackViewModel(Track track) {
+        TrackViewModel trackViewModel = new TrackViewModel();
+        trackViewModel.setId(track.getId());
+        trackViewModel.setAlbumId(track.getAlbumId());
+        trackViewModel.setTitle(track.getTitle());
+        trackViewModel.setRunTime(track.getRunTime());
+
+        return trackViewModel;
+    }
 }
