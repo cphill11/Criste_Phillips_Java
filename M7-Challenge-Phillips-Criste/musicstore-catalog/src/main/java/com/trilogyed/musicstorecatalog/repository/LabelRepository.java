@@ -1,4 +1,9 @@
 package com.trilogyed.musicstorecatalog.repository;
 
-public class LabelRepository {
+import com.trilogyed.musicstorecatalog.model.Label;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LabelRepository extends JpaRepository<Label, Long> {
 }

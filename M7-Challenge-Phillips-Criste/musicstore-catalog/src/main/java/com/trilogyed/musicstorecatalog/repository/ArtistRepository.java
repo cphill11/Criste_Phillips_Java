@@ -1,4 +1,7 @@
 package com.trilogyed.musicstorecatalog.repository;
 
-public class ArtistRepository {
+import com.trilogyed.musicstorecatalog.model.Artist;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ArtistRepository extends JpaRepository<Artist, Long> {
 }

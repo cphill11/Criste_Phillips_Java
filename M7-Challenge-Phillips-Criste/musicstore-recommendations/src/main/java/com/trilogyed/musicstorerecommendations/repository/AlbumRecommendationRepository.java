@@ -1,4 +1,7 @@
 package com.trilogyed.musicstorerecommendations.repository;
 
-public class AlbumRecommendationRepository {
+import com.trilogyed.musicstorerecommendations.model.AlbumRecommendation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AlbumRecommendationRepository extends JpaRepository<AlbumRecommendation, Long> {
 }
