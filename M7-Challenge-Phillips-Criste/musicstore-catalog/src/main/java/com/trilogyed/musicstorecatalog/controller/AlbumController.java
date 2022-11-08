@@ -17,12 +17,12 @@ public class AlbumController {
     MusicStoreCatalogServiceLayer service;
 
     // create Album
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public AlbumViewModel createAlbum(@RequestBody @Valid AlbumViewModel albumViewModel) {
-//       albumViewModel = service.createAlbum(albumViewModel);
-//        return albumViewModel;
-//    }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public AlbumViewModel createAlbum(@RequestBody @Valid AlbumViewModel albumViewModel) {
+       albumViewModel = service.createAlbum(albumViewModel);
+        return albumViewModel;
+    }
 
 
     // get all Albums
