@@ -3,6 +3,7 @@ package com.trilogyed.musicstorecatalog.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -15,6 +16,7 @@ public class Label implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "label_id")
     private long id;
+    @NotNull
     private String name;
     private String website;
 

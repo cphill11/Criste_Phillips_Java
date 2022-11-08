@@ -3,6 +3,7 @@ package com.trilogyed.musicstorecatalog.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -19,17 +20,22 @@ public class Album implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "album_id")
     private long id;
+    @NotNull
     private String title;
 
+    @NotNull
     @Column(name = "artist_id")
     private long artistID;
 
+    @NotNull
     @Column(name = "release_date")
     private Date releaseDate;
 
+    @NotNull
     @Column(name = "label_id")
     private long labelID;
 
+    @NotNull
     @Column(name = "list_price")
     private BigDecimal listPrice;
 
