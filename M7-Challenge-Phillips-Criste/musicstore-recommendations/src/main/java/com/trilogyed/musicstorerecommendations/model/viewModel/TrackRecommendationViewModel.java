@@ -1,4 +1,4 @@
-package com.trilogyed.musicstorerecommendations.viewModel;
+package com.trilogyed.musicstorerecommendations.model.viewModel;
 
 import java.util.Objects;
 

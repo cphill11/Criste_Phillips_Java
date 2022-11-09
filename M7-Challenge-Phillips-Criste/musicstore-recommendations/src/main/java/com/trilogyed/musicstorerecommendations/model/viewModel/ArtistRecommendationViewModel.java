@@ -1,11 +1,11 @@
-package com.trilogyed.musicstorerecommendations.viewModel;
+package com.trilogyed.musicstorerecommendations.model.viewModel;
 
 import java.util.Objects;
 
 // as used in Challenge 5
-public class LabelRecommendationViewModel {
+public class ArtistRecommendationViewModel {
     private long id;
-    private int labelId;
+    private int artistId;
     private int userId;
     private Boolean liked;
 
@@ -17,12 +17,12 @@ public class LabelRecommendationViewModel {
         this.id = id;
     }
 
-    public int getLabelId() {
-        return labelId;
+    public int getArtistId() {
+        return artistId;
     }
 
-    public void setLabelId(int labelId) {
-        this.labelId = labelId;
+    public void setArtistId(int artistId) {
+        this.artistId = artistId;
     }
 
     public int getUserId() {
@@ -44,13 +44,13 @@ public class LabelRecommendationViewModel {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof LabelRecommendationViewModel)) return false;
-        LabelRecommendationViewModel that = (LabelRecommendationViewModel) o;
-        return getId() == that.getId() && getLabelId() == that.getLabelId() && getUserId() == that.getUserId() && Objects.equals(getLiked(), that.getLiked());
+        if (!(o instanceof ArtistRecommendationViewModel)) return false;
+        ArtistRecommendationViewModel that = (ArtistRecommendationViewModel) o;
+        return getId() == that.getId() && getArtistId() == that.getArtistId() && getUserId() == that.getUserId() && Objects.equals(getLiked(), that.getLiked());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getLabelId(), getUserId(), getLiked());
+        return Objects.hash(getId(), getArtistId(), getUserId(), getLiked());
     }
 }

@@ -1,20 +1,20 @@
 package com.trilogyed.musicstorecatalog.controller;
 
 
-import com.trilogyed.musicstorecatalog.service.MusicStoreCatalogServiceLayer;
 import com.trilogyed.musicstorecatalog.viewModel.AlbumViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/album")
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class AlbumController {
     @Autowired
-    MusicStoreCatalogServiceLayer service;
+
 
     // create Album
     @PostMapping
@@ -27,40 +27,41 @@ public class AlbumController {
 
     // get all Albums
 
-//    @GetMapping()
-//    @ResponseStatus(HttpStatus.OK)
-//    public List<ConsoleViewModel> getAllConsoles() {
-//        List<ConsoleViewModel> cvmByManufacturer = service.getAllConsoles();
-//        if (cvmByManufacturer == null || cvmByManufacturer.isEmpty()) {
-//            throw new IllegalArgumentException("No consoles were found");
-//        } else
-//            return cvmByManufacturer;
-//    }
+    @GetMapping()
+    @ResponseStatus(HttpStatus.OK)
+    public List<AlbumViewModel> getAllAlbums() {
+
+        List<AlbumViewModel> avmByTitle  = service.getAllAlbums();
+        if (avmByTitle == null || avmByTitle .isEmpty()) {
+            throw new IllegalArgumentException("No albums were found");
+        } else
+            return avmByTitle;
+    }
 
 
     // get Album by ID
-//    @GetMapping("/{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public ConsoleViewModel getConsole(@PathVariable("id") long consoleId) {
-//        ConsoleViewModel consoleViewModel = service.getConsoleById(consoleId);
-//        if (consoleViewModel == null) {
-//            throw new IllegalArgumentException("Console could not be retrieved for id " + consoleId);
-//        } else {
-//            return consoleViewModel;
-//        }
-//    }
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public AlbumViewModel getAlbumByID(@PathVariable("id") long albumId) {
+        AlbumViewModel albumViewModel = service.findById(albumId);
+        if (albumViewModel == null) {
+            throw new IllegalArgumentException("Album could not be retrieved for id " + albumId);
+        } else {
+            return albumViewModel;
+        }
+    }
 
     // update Album
-//    @PutMapping (value = "/{id}")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public void updateConsole(@RequestBody @Valid ConsoleViewModel consoleViewModel) {
-//
-//        if (consoleViewModel == null || consoleViewModel.getId() < 1) {
-//            throw new IllegalArgumentException("Id in path must match id in view model");
-//        } else if (consoleViewModel.getId() > 0) {
-//            service.updateConsole(consoleViewModel);
-//        }
-//    }
+    @PutMapping (value = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateAlbum(@RequestBody @Valid AlbumViewModel albumViewModel) {
+
+        if (albumViewModel == null || albumViewModel.getId() < 1) {
+            throw new IllegalArgumentException("Id in path must match id in view model");
+        } else if (albumViewModel.getId() > 0) {
+            service.updateAlbum(albumViewModel);
+        }
+    }
 
     // delete Album
 

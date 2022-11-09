@@ -1,4 +1,4 @@
-package com.trilogyed.musicstorerecommendations.viewModel;
+package com.trilogyed.musicstorerecommendations.model.viewModel;
 
 // as used in Challenge 5
 public class AlbumRecommendationViewModel {
