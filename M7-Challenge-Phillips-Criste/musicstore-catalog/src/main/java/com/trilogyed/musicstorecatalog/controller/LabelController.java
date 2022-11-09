@@ -56,5 +56,4 @@ public class LabelController {
     public void deleteLabel(@PathVariable("id") long labelId) {
         repo.deleteById(labelId);
     }
-
 }

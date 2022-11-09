@@ -54,5 +54,4 @@ public class ArtistController {
     public void deleteArtist(@PathVariable("id") long artistId) {
         repo.deleteById(artistId);
     }
-
 }
