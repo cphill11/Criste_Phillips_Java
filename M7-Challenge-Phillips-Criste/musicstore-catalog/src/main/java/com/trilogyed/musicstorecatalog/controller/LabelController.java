@@ -29,22 +29,20 @@ public class LabelController {
         return repo.findAll();
     }
 
+    // as shown by Dan's heroku-coffee example
     // get Label by ID
-//    @GetMapping("{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public Label getLabelByID(@PathVariable("id") long labelId) {
-//        if (labelId < 1) {
-//            throw new IllegalArgumentException("Label ID must be at least 1");
-//        }
-//        Optional<Label> returnVal = repo.findById(labelId);
-//        if (returnVal.isPresent()){
-//            return returnVal.get();
-//        } else {
-//            throw new ProductNotFoundException("No such label. id:  " + labelId);
-//        }
-//    }
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Label getLabelByID(@PathVariable("id") long labelId) {
+        Optional<Label> returnVal = repo.findById(labelId);
+        if (!returnVal.isPresent()) {
+            throw new IllegalArgumentException("No label with id " + labelId);
+        }
+        return returnVal.get();
+    }
+
     // update Label
-    @PutMapping ()
+    @PutMapping()
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateLabel(@RequestBody Label label) {
         repo.save(label);

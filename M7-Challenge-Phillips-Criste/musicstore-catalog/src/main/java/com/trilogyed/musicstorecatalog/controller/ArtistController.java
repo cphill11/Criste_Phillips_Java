@@ -1,6 +1,7 @@
 package com.trilogyed.musicstorecatalog.controller;
 
 import com.trilogyed.musicstorecatalog.model.Artist;
+import com.trilogyed.musicstorecatalog.model.Label;
 import com.trilogyed.musicstorecatalog.repository.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,20 +28,17 @@ public class ArtistController {
     public List<Artist> getAllArtists() {
         return repo.findAll();
     }
+    // as shown by Dan's heroku-coffee example
     // get Artist by ID
-//    @GetMapping("{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public Artist getArtistByID(@PathVariable("id") long artistId) {
-//        if (artistId < 1) {
-//            throw new IllegalArgumentException("Artist ID must be at least 1");
-//        }
-//        Optional<Artist> returnVal = repo.findById(artistId);
-//        if (returnVal.isPresent()){
-//            return returnVal.get();
-//        } else {
-//            throw new ProductNotFoundException("No such artist. id:  " + artistId);
-//        }
-//    }
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Artist getArtistByID(@PathVariable("id") long artistId) {
+    Optional<Artist> returnVal = repo.findById(artistId);
+        if (!returnVal.isPresent()) {
+        throw new IllegalArgumentException("No artist with id " + artistId);
+    }
+        return returnVal.get();
+}
 
     // update Artist
     @PutMapping()

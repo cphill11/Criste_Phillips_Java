@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/albumRecommendation")
@@ -28,23 +29,20 @@ public class AlbumRecommendationController {
         return repo.findAll();
     }
 
+    // as shown by Dan's heroku-coffee example
     // get AlbumRecommendation by ID
-//    @GetMapping("{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public AlbumRecommendation getAlbumRecommendationByID(@PathVariable("id") long albumRecommendationId) {
-//        if (albumRecommendationId < 1) {
-//            throw new IllegalArgumentException("AlbumRecommendation ID must be at least 1");
-//        }
-//        Optional<AlbumRecommendation> returnVal = repo.findById(albumRecommendationId);
-//        if (returnVal.isPresent()){
-//            return returnVal.get();
-//        } else {
-//            throw new ProductNotFoundException("No such albumRecommendation. id:  " + albumRecommendationId);
-//        }
-//    }
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public AlbumRecommendation getAlbumRecommendationByID(@PathVariable("id") long albumRecommendationId) {
+        Optional<AlbumRecommendation> returnVal = repo.findById(albumRecommendationId);
+        if (!returnVal.isPresent()) {
+            throw new IllegalArgumentException("No album with id " + albumRecommendationId);
+        }
+        return returnVal.get();
+    }
 
     // update Album
-    @PutMapping ()
+    @PutMapping()
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateAlbumRecommendation(@RequestBody AlbumRecommendation albumRecommendation) {
         repo.save(albumRecommendation);

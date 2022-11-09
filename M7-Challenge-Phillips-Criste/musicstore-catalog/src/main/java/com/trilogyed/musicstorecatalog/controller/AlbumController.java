@@ -16,10 +16,10 @@ public class AlbumController {
     AlbumRepository repo;
 
     // create Album
-    @PostMapping ()
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public Album createAlbum(@RequestBody Album album) {
-       return repo.save(album);
+        return repo.save(album);
     }
 
     // get all Albums
@@ -29,23 +29,20 @@ public class AlbumController {
         return repo.findAll();
     }
 
+    // as shown by Dan's heroku-coffee example
     // get Album by ID
-//    @GetMapping("{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public Album getAlbumByID(@PathVariable("id") long albumId) {
-//        if (albumId < 1) {
-//            throw new IllegalArgumentException("Album ID must be at least 1");
-//        }
-//        Optional<Album> returnVal = repo.findById(albumId);
-//        if (returnVal.isPresent()){
-//            return returnVal.get();
-//        } else {
-//            throw new ProductNotFoundException("No such album. id:  " + albumId);
-//        }
-//    }
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Album getAlbumByID(@PathVariable("id") long albumId) {
+        Optional<Album> returnVal = repo.findById(albumId);
+        if (!returnVal.isPresent()) {
+            throw new IllegalArgumentException("No album with id " + albumId);
+        }
+        return returnVal.get();
+    }
 
     // update Album
-    @PutMapping ()
+    @PutMapping()
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateAlbum(@RequestBody Album album) {
         repo.save(album);
@@ -55,6 +52,6 @@ public class AlbumController {
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAlbum(@PathVariable("id") long albumId) {
-       repo.deleteById(albumId);
+        repo.deleteById(albumId);
     }
 }

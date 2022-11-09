@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/artistRecommendation")
@@ -20,26 +21,25 @@ public class ArtistRecommendationController {
     public ArtistRecommendation createArtistRecommendation(@RequestBody ArtistRecommendation artistRecommendation) {
         return repo.save(artistRecommendation);
     }
+
     // get all ArtistRecommendations
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public List<ArtistRecommendation> getAllArtistRecommendations() {
         return repo.findAll();
     }
+
+    // as shown by Dan's heroku-coffee example
     // get ArtistRecommendation by ID
-//    @GetMapping("{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public ArtistRecommendation getArtistRecommendationByID(@PathVariable("id") long artistRecommendationId) {
-//        if (artistRecommendationId < 1) {
-//            throw new IllegalArgumentException("Artist Recommendation ID must be at least 1");
-//        }
-//        Optional<ArtistRecommendation> returnVal = repo.findById(artistRecommendationId);
-//        if (returnVal.isPresent()){
-//            return returnVal.get();
-//        } else {
-//            throw new ProductNotFoundException("No such artistRecommendation. id:  " + artistRecommendationId);
-//        }
-//    }
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ArtistRecommendation getArtistRecommendationByID(@PathVariable("id") long artistRecommendationId) {
+        Optional<ArtistRecommendation> returnVal = repo.findById(artistRecommendationId);
+        if (!returnVal.isPresent()) {
+            throw new IllegalArgumentException("No artist with id " + artistRecommendationId);
+        }
+        return returnVal.get();
+    }
 
     // update Artist
     @PutMapping()
@@ -47,6 +47,7 @@ public class ArtistRecommendationController {
     public void updateArtistRecommendation(@RequestBody ArtistRecommendation artistRecommendation) {
         repo.save(artistRecommendation);
     }
+
     // delete Artist
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

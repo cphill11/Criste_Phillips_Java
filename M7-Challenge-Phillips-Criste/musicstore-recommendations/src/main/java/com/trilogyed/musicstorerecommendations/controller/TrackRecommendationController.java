@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/trackRecommendation")
@@ -28,23 +29,20 @@ public class TrackRecommendationController {
         return repo.findAll();
     }
 
+    // as shown by Dan's heroku-coffee example
     // get Track Recommendation by ID
-//    @GetMapping("{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public TrackRecommendation getTrackRecommendationByID(@PathVariable("id") long trackRecommendationId) {
-//        if (trackRecommendationId < 1) {
-//            throw new IllegalArgumentException("Track Recommendation ID must be at least 1");
-//        }
-//        Optional<TrackRecommendation> returnVal = repo.findById(trackRecommendationId);
-//        if (returnVal.isPresent()){
-//            return returnVal.get();
-//        } else {
-//            throw new ProductNotFoundException("No such trackRecommendation. id:  " + trackRecommendationId);
-//        }
-//    }
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public TrackRecommendation getTrackRecommendationByID(@PathVariable("id") long trackRecommendationId) {
+        Optional<TrackRecommendation> returnVal = repo.findById(trackRecommendationId);
+        if (!returnVal.isPresent()) {
+            throw new IllegalArgumentException("No track with id " + trackRecommendationId);
+        }
+        return returnVal.get();
+    }
 
     // update Album
-    @PutMapping ()
+    @PutMapping()
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateTrackRecommendation(@RequestBody TrackRecommendation trackRecommendation) {
         repo.save(trackRecommendation);
