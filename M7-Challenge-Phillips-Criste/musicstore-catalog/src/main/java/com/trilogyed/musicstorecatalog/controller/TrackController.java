@@ -1,4 +1,62 @@
 package com.trilogyed.musicstorecatalog.controller;
 
+import com.trilogyed.musicstorecatalog.model.Album;
+import com.trilogyed.musicstorecatalog.model.Track;
+import com.trilogyed.musicstorecatalog.repository.AlbumRepository;
+import com.trilogyed.musicstorecatalog.repository.TrackRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/track")
 public class TrackController {
+    @Autowired
+    TrackRepository repo;
+
+    // create Track
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public Track createTrack(@RequestBody Track track) {
+        return repo.save(track);
+    }
+
+    // get all Tracks
+    @GetMapping()
+    @ResponseStatus(HttpStatus.OK)
+    public List<Track> getAllTracks() {
+        return repo.findAll();
+    }
+
+    // get Track by ID
+//    @GetMapping("{id}")
+//    @ResponseStatus(HttpStatus.OK)
+//    public Track getTrackByID(@PathVariable("id") long trackId) {
+//        if (trackId < 1) {
+//            throw new IllegalArgumentException("Track ID must be at least 1");
+//        }
+//        Optional<Track> returnVal = repo.findById(trackId);
+//        if (returnVal.isPresent()){
+//            return returnVal.get();
+//        } else {
+//            throw new ProductNotFoundException("No such track. id:  " + trackId);
+//        }
+//    }
+
+    // update Album
+    @PutMapping ()
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateTrack(@RequestBody Track track) {
+        repo.save(track);
+    }
+
+    // delete Album
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteTrack(@PathVariable("id") long trackId) {
+        repo.deleteById(trackId);
+    }
+
 }
